@@ -5,6 +5,7 @@ lappend ::auto_path /Melify/mtk/dev/tk/lib/unqlite
 package require unqlite
 
 unqlite db "unqlite.db"
+db doc_drop;# drop users if exist
 
 # db kv_store 1000 [list id 1000 fname Isac lname Berman email admin@melify.com paswd guest active 1 updated 1042129066 role admin company Melify]
 # db kv_store 1001 [list id 1001 fname Peter lname Johnson email u2@melify.com paswd guest active 1 updated 1042129066 role user company Melify]
@@ -13,6 +14,7 @@ unqlite db "unqlite.db"
 # puts [db kv_fetch 1000]
 
 db doc_create users
+
 db doc_store {id 1000 fname Isac lname Berman email admin@melify.com paswd guest active 1 updated 1042129066 role admin company Melify}
 db doc_store {id 1001 fname Peter lname Johnson email u2@melify.com paswd guest active 1 updated 1042129066 role user company Melify}
 db doc_store {id 1002 fname Susan lname Smith email u3@melify.com paswd guest active 1 updated 1042129066 role sales company Melify}
