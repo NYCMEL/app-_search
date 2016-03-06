@@ -17,8 +17,7 @@ db doc_store {id 1000 fname Isac lname Berman email admin@melify.com paswd guest
 db doc_store {id 1001 fname Peter lname Johnson email u2@melify.com paswd guest active 1 updated 1042129066 role user company Melify}
 db doc_store {id 1002 fname Susan lname Smith email u3@melify.com paswd guest active 1 updated 1042129066 role sales company Melify}
 
-db doc_fetchall
-puts [db doc_count]
+puts "[db doc_count]|[db doc_fetchall]"
 
 dict set user 0 [db doc_fetch_id 0]
 puts [dict get $user 0 fname]
