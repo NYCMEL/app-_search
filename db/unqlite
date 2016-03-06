@@ -27,4 +27,4 @@ puts [dict get $user 0 fname]
 dict set user 0 fname "HELLO"
 puts [dict get $user 0 fname]
 
-#db close
+db close
