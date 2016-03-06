@@ -12,4 +12,13 @@ db kv_store 1002 [list id 1002 fnameSusan lname Smith email u3@melify.com paswd 
 
 puts [db kv_fetch 1000]
 
-db close
+db doc_create user
+db doc_store "{ name : 'alex', age : 19, mail : 'alex@example.com'  }"
+db doc_store "{ name : 'robert', age : 49, mail : 'dude@example.com'  }"
+db doc_store "{ name : 'orange', age : 12, mail : 'cat@example.com'  }"
+db doc_store "{ name : 'michael', age : 52, mail : 'test@example.com'  }"
+db doc_store "{ name : 'glary', age : 45, mail : 'beart@example.com'  }"
+
+db doc_fetchall
+
+#db close
