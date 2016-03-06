@@ -11,3 +11,5 @@ db kv_store 1001 [list id 1001 fname Peter lname Johnson email u2@melify.com pas
 db kv_store 1002 [list id 1002 fnameSusan lname Smith email u3@melify.com paswd guest active 1 updated 1042129066 role sales company Melify]
 
 puts [db kv_fetch 1000]
+
+db close
