@@ -32,9 +32,7 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    division id="template-header" {
-	h1 "$::company header..."
-    }
+    h1 "$::company header..."
 }
 
 ######################################################
@@ -46,9 +44,7 @@ m::proc -public template::1::footer {
 } {
     Trace
     
-    division id="template-footer" {
-	put "$::company footer..."
-    }
+    put "$::company footer..."
 }
 
 ######################################################
