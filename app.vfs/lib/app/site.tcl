@@ -67,12 +67,6 @@ m::proc -private Site::head {
 	tk::include::common
 	tk::include::bootstrap
 	
-	# DISPLAY DEBUG INFORMATION IF LOCAL
-	if {$::tk(local) == 1} {
-	    include "/tk/jquery/scripts/jquery.hotkeys.js"
-	    include "/tk/jquery/scripts/hotkeys.js"
-	}
-
 	javascript {
 	    put [subst {
 		jQuery(document).ready(function() {
