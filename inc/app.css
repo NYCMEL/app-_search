@@ -16,12 +16,6 @@
 *  along with this program.  If not, see http://www.gnu.org/licenses.
 *
 ****HEADE*****************************************************************/
-/*---------------------------------------------------
-    LESS Elements 0.9
-  ---------------------------------------------------
-    A set of useful LESS mixins
-    More info at: http://lesselements.com
-  ---------------------------------------------------*/
 @font-face {
   font-family: "Roboto";
   src: url("/GitHub/fonts/apache/roboto/Roboto-Regular.ttf") format("truetype");
@@ -37,24 +31,4 @@
 @font-face {
   font-family: "Oswald-bold";
   src: url("/GitHub/fonts/ofl/oswald/Oswald-Bold.ttf") format("truetype");
-}
-body {
-  font-family: Roboto;
-  background: yellow;
-}
-body .template-header {
-  padding-top: 20px;
-  color: brown;
-}
-body .template-header h1 {
-  font-size: 40px;
-}
-body .template-footer {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-size: 12px;
-  color: #999;
-}
-body .template-guts {
-  color: #666;
 }
