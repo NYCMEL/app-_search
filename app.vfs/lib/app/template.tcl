@@ -21,7 +21,7 @@ namespace eval template {
     namespace eval 1 {}
 }
 
-division class="tk-dummy" {}
+division class="tk-dummy" [style display none] {}
 
 ######################################################
 ##### 
