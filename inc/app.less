@@ -27,9 +27,14 @@
 @color-focus   : desaturate(@color-primary, 10%);
 @color-disable : lightness(desaturate(@color-primary, 100%), 30%);
 
+@body-bg: #FFF;
+ 
 body {
     .oswald       {font-family: Oswald}
     .oswald-bold  {font-family: Oswald-bold}
     .oswald-light {font-family: Oswald-light}
     .roboto       {font-family: Roboto}
+
+    background-color: @body-bg!important;
+    color: contrast(@body-bg)!important;
 }

@@ -32,6 +32,10 @@
   font-family: "Oswald-bold";
   src: url("/GitHub/fonts/ofl/oswald/Oswald-Bold.ttf") format("truetype");
 }
+body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
 body .oswald {
   font-family: Oswald;
 }
