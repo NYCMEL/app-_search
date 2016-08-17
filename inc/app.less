@@ -22,9 +22,10 @@
 @font-face {font-family: "Oswald-light";src: url("/GitHub/fonts/ofl/oswald/Oswald-Light.ttf") format("truetype");}
 @font-face {font-family: "Oswald-bold";src: url("/GitHub/fonts/ofl/oswald/Oswald-Bold.ttf") format("truetype");}
 
-@color-base : steelblue;
-@color-base-lighter: lighten(@color-base, 10%);
-@color-base-darker: darken(@color-base, 10%);
+@color-primary : #3bafdA;
+@color-hover   : saturate(@color-primary, 10%);
+@color-focus   : desaturate(@color-primary, 10%);
+@color-disable : lightness(desaturate(@color-primary, 100%), 30%);
 
 body {
     .oswald       {font-family: Oswald}
