@@ -66,14 +66,6 @@ m::proc -private Site::head {
 	tk::include::viewport
 	tk::include::common
 	tk::include::bootstrap
-	
-	javascript {
-	    put [subst {
-		jQuery(document).ready(function() {
-		    app.init({app:"$::APP", env:"$::ENV", local:"$::tk(local)", clock:"$::tk(clock)"});
-		});
-	    }]
-	}
     }
 }
 
@@ -106,6 +98,10 @@ m::proc -private Site::body {
 	    tk::error "$e"
 	}
     }
+
+    include "/tk/lib/components/w3c/js/wc.common.min.js"
+    include "/tk/lib/components/w3c/js/wc.components.js"
+    include "/tk/lib/components/w3c/js/wc.form.min.js"
 }
 
 ##################################################
