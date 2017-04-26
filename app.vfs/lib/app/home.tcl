@@ -92,6 +92,8 @@ m::proc -public home::guts {
     
     division id="${_id}" {
 	division id="wc" {
+	    put [file:read $::starkit::topdir/data/tmp/header.html]
+	    br
 	    put [file:read $::starkit::topdir/data/tmp/panel.html]
 	}
     }
