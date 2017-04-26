@@ -66,6 +66,9 @@ m::proc -private Site::head {
 	tk::include::viewport
 	tk::include::common
 	tk::include::bootstrap
+
+	include "/tk/lib/components/w3c/scss/wc.common.css"
+	include "/tk/lib/components/w3c/scss/wc.form.min.css"
     }
 }
 
