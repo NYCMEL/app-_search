@@ -91,6 +91,8 @@ m::proc -public home::guts {
     variable _id [id]
     
     division id="${_id}" {
-	put [file:read $::starkit::topdir/data/tmp/panel.html]
+	division id="wc" {
+	    put [file:read $::starkit::topdir/data/tmp/panel.html]
+	}
     }
 }
