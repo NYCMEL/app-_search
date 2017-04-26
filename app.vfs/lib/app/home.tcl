@@ -91,13 +91,6 @@ m::proc -public home::guts {
     variable _id [id]
     
     division id="${_id}" {
-	tk::bugger {
-	    h1 "HOME IS LOADED..."
-	}
-	
-	h1 "[namespace current] <small>subtext goes here...</small>"
-	hr
-
-	tk::dummy::2
+	put [file:read $::starkit::topdir/data/tmp/panel.html]
     }
 }
