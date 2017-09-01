@@ -93,9 +93,6 @@ m::proc -private Site::body {
     }
 
     tk::comment "Site::body" {
-	# ADD SPINNING WHEEL ON AJAX CALLS
-	tk::loading
-	
 	if {[catch {
 	    if {[info exist ::callback] == 0} {
 		${::page}::init

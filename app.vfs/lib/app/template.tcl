@@ -32,7 +32,7 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    put [file:read $::starkit::topdir/data/tmp/header.html];br
+    put [subst [file:read $::starkit::topdir/data/tmp/header.html]];br
 }
 
 ######################################################
@@ -45,7 +45,7 @@ m::proc -public template::1::footer {
     Trace
     
     br
-    put [file:read $::starkit::topdir/data/tmp/footer.html]
+    put [subst [file:read $::starkit::topdir/data/tmp/footer.html]]
 }
 
 ######################################################
