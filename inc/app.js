@@ -1,7 +1,7 @@
 var app = {};
 
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2017-09-01 14:21:51 (melify)>
+//// Time-stamp: <2017-09-01 14:33:42 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 app.init = function() {
     console.group("app.init");
@@ -11,11 +11,15 @@ app.init = function() {
     $('body').attr('id','wc');
 
     wc.subscribe("wc-header", function(e) {
-	console.info("'wc-header' subscription was triggered:", JSON.stringify(e.detail));
+	console.info("app.js 'wc-header' subscription was triggered:", JSON.stringify(e.detail));
 	
 	$(".apage").hide(0, function() {
 	    $("#page-" + e.detail.id).show(0);
 	});
+    });
+
+    wc.subscribe("wc-footer", function(e) {
+	console.info("app.js 'wc-footer' subscription was triggered:", JSON.stringify(e.detail));
     });
 
     console.groupEnd();
