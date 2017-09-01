@@ -67,9 +67,11 @@ m::proc -private Site::head {
 	tk::include::common
 	tk::include::bootstrap
 
-	include "/tk/lib/components/w3c//ext/fa/css/font-awesome.min.css"
-	include "/tk/lib/components/w3c/scss/wc.common.css"
-	include "/tk/lib/components/w3c/scss/wc.form.min.css"
+	if {1} {
+	    include "/tk/lib/components/w3c//ext/fa/css/font-awesome.min.css"
+	    include "/tk/lib/components/w3c/scss/wc.common.css"
+	    include "/tk/lib/components/w3c/scss/wc.form.min.css"
+	}
     }
 }
 
@@ -103,9 +105,11 @@ m::proc -private Site::body {
 	}
     }
 
-    include "/tk/lib/components/w3c/js/wc.common.min.js"
-    include "/tk/lib/components/w3c/js/wc.components.js"
-    include "/tk/lib/components/w3c/js/wc.form.min.js"
+    if {1} {
+	include "/tk/lib/components/w3c/js/wc.common.min.js"
+	include "/tk/lib/components/w3c/js/wc.components.js"
+	include "/tk/lib/components/w3c/js/wc.form.min.js"
+    }
 }
 
 ##################################################

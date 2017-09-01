@@ -64,7 +64,7 @@ m::proc -public home::template {
 } {
     Trace
 
-    return "template::1"
+    return "template::0"
 }
 
 ######################################################
