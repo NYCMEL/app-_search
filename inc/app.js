@@ -1,7 +1,7 @@
 var app = {};
 
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2017-09-01 14:07:37 (melify)>
+//// Time-stamp: <2017-09-01 14:21:25 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 app.init = function() {
     console.group("app.init");
@@ -10,12 +10,11 @@ app.init = function() {
     
     $('body').attr('id','wc');
 
-    $(".wc-header-bot-menus li a").on("click", function(e) {
-	let el = $(this);
-	let id = el.attr("id");
+    wc.subscribe("wc-header", function(e) {
+	console.info("'wc-header' subscription was triggered:", JSON.stringify(e.detail));
 
 	$(".apage").hide(0, function() {
-	    $("#page-" + id).show(0);
+	    $("#page-" + e.detail.id).show(0);
 	});
     });
 
@@ -28,6 +27,3 @@ app.init = function() {
 jQuery(document).ready(function() {
     app.init();
 });
-
-
-
