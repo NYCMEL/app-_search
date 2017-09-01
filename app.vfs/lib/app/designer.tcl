@@ -17,9 +17,7 @@
 #
 ###HEADE###################################################################
 
-namespace eval designer {
-}
-
+namespace eval designer {}
 
 include "/inc/designer.css"
 include "/inc/designer.js"
@@ -69,7 +67,7 @@ m::proc -public designer::template {
 } {
     Trace
 
-    return "template::1"
+    return "template::0"
 }
 
 ######################################################

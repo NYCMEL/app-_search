@@ -17,9 +17,7 @@
 #
 ###HEADE###################################################################
 
-namespace eval coder {
-}
-
+namespace eval coder {}
 
 include "/inc/coder.css"
 include "/inc/coder.js"
@@ -69,7 +67,7 @@ m::proc -public coder::template {
 } {
     Trace
 
-    return "template::1"
+    return "template::0"
 }
 
 ######################################################

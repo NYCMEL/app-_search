@@ -69,7 +69,7 @@ m::proc -public files::template {
 } {
     Trace
 
-    return "template::1"
+    return "template::0"
 }
 
 ######################################################
@@ -100,7 +100,7 @@ m::proc -public files::guts {
 	    h1 "[namespace current] <small>sub text goes here</small>"
 	}
 
-	tk::dummy::2
+	tk::dummy::3
     }
 }
 

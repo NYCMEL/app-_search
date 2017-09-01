@@ -94,19 +94,14 @@ m::proc -public home::guts {
 	division class="container" {
 	    division class="row" {
 		division class="col-md-12" {
-		    #put [file:read $::starkit::topdir/data/tmp/panel.html]
-
 		    division class="apage" id="page-files" {
-			tk::dummy::3
-			h1 "page-files"
+			files::init
 		    }
 		    division class="apage" id="page-designer" [style display none] {
-			tk::dummy::3
-			h1 "page-designer"
+			designer::init
 		    }
 		    division class="apage" id="page-coder" [style display none] {
-			tk::dummy::3
-			h1 "page-coder"
+			coder::init
 		    }
 		}
 	    }
