@@ -19,6 +19,8 @@
 
 namespace eval home {}
 
+include "/inc/home.js"
+
 ######################################################
 ##### 
 ######################################################
@@ -94,10 +96,27 @@ m::proc -public home::guts {
 	division class="container" {
 	    division class="row" {
 		division class="col-md-12" {
-		    h1 "Welcome to WCW"
+		    #put [file:read $::starkit::topdir/data/tmp/panel.html]
 
-		    put [file:read $::starkit::topdir/data/tmp/panel.html]
+		    division class="apage" id="page-files" {
+			h1 "page-files"
+			tk::dummy::3
+		    }
+		    division class="apage" id="page-designer" [style display none] {
+			h1 "page-designer"
+			tk::dummy::3
+		    }
+		    division class="apage" id="page-coder" [style display none] {
+			h1 "page-coder"
+			tk::dummy::3
+		    }
 		}
+	    }
+	}
+        
+	javascript {
+	    put {
+		home.init();
 	    }
 	}
     }
