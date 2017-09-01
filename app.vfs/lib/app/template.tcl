@@ -44,7 +44,8 @@ m::proc -public template::1::footer {
 } {
     Trace
     
-    put "$::company footer..."
+    br
+    put [file:read $::starkit::topdir/data/tmp/footer.html]
 }
 
 ######################################################
