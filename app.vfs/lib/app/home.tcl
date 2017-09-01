@@ -19,8 +19,6 @@
 
 namespace eval home {}
 
-include "/inc/home.js"
-
 ######################################################
 ##### 
 ######################################################
@@ -111,12 +109,6 @@ m::proc -public home::guts {
 			tk::dummy::3
 		    }
 		}
-	    }
-	}
-        
-	javascript {
-	    put {
-		home.init();
 	    }
 	}
     }

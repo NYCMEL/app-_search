@@ -1,7 +1,7 @@
 var app = {};
 
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2017-09-01 13:38:00 (melify)>
+//// Time-stamp: <2017-09-01 14:07:37 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 app.init = function() {
     console.group("app.init");
@@ -9,6 +9,15 @@ app.init = function() {
     console.group("app.init");
     
     $('body').attr('id','wc');
+
+    $(".wc-header-bot-menus li a").on("click", function(e) {
+	let el = $(this);
+	let id = el.attr("id");
+
+	$(".apage").hide(0, function() {
+	    $("#page-" + id).show(0);
+	});
+    });
 
     console.groupEnd();
 };
