@@ -72,6 +72,8 @@ m::proc -private Site::head {
 	    include "/tk/lib/components/w3c/dist/wc.base.min.css"
 	    include "/tk/lib/components/w3c/dist/wc.form.css"
 	}
+
+	include "/inc/app.css"
     }
 }
 
