@@ -32,7 +32,7 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    h1 "$::company header..."
+    put [file:read $::starkit::topdir/data/tmp/header.html];br
 }
 
 ######################################################

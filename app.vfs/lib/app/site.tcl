@@ -113,6 +113,8 @@ m::proc -private Site::body {
 	include "/tk/lib/components/w3c/dist/wc.base.min.js"
 	include "/tk/lib/components/w3c/dist/wc.form.min.js"
     }
+
+    include "/inc/app.js"
 }
 
 ##################################################

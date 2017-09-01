@@ -91,10 +91,14 @@ m::proc -public home::guts {
     variable _id [id]
     
     division id="${_id}" {
-	division id="wc" {
-	    put [file:read $::starkit::topdir/data/tmp/header.html]
-	    br
-	    put [file:read $::starkit::topdir/data/tmp/panel.html]
+	template::1::header
+	    
+	division class="container" {
+	    division class="row" {
+		division class="col-md-12" {
+		    put [file:read $::starkit::topdir/data/tmp/panel.html]
+		}
+	    }
 	}
     }
 }
