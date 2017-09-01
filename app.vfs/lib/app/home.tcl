@@ -94,6 +94,8 @@ m::proc -public home::guts {
 	division class="container" {
 	    division class="row" {
 		division class="col-md-12" {
+		    h1 "Welcome to WCW"
+
 		    put [file:read $::starkit::topdir/data/tmp/panel.html]
 		}
 	    }
