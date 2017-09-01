@@ -72,18 +72,14 @@ m::proc -public template::1 {
     
     tk::comment "template::1" {
 	division class="template" id="template" {
-	    division class="container" {
-		division class="row" {
-		    division class="col-md-12 template-header" id="template-header" {
-			template::1::header
-		    }
-		    division class="col-md-12 template-guts" id="template-guts" {
-			uplevel guts
-		    }
-		    division class="col-md-12 template-footer" id="template-footer" {
-			template::1::footer
-		    }
-		}
+	    division class="template-header" id="template-header" {
+		template::1::header
+	    }
+	    division {
+		uplevel guts
+	    }
+	    division class="template-footer" id="template-footer" {
+		template::1::footer
 	    }
 	}
     }

@@ -64,7 +64,7 @@ m::proc -public home::template {
 } {
     Trace
 
-    return "template::0"
+    return "template::1"
 }
 
 ######################################################
@@ -91,8 +91,6 @@ m::proc -public home::guts {
     variable _id [id]
     
     division id="${_id}" {
-	template::1::header
-	    
 	division class="container" {
 	    division class="row" {
 		division class="col-md-12" {
