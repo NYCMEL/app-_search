@@ -63,16 +63,12 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
-	tk::include::viewport
-	tk::include::common
-	tk::include::bootstrap
+	include "/tk/lib/components/w3c//ext/fa/css/font-awesome.min.css"
 
 	if {0} {
-	    include "/tk/lib/components/w3c//ext/fa/css/font-awesome.min.css"
 	    include "/tk/lib/components/w3c/scss/wc.common.css"
 	    include "/tk/lib/components/w3c/scss/wc.form.min.css"
 	} else {
-	    include "/tk/lib/components/w3c//ext/fa/css/font-awesome.min.css"
 	    include "/tk/lib/components/w3c/dist/wc.base.min.css"
 	    include "/tk/lib/components/w3c/dist/wc.form.css"
 	}
