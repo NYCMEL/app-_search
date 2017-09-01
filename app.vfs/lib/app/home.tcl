@@ -97,16 +97,16 @@ m::proc -public home::guts {
 		    #put [file:read $::starkit::topdir/data/tmp/panel.html]
 
 		    division class="apage" id="page-files" {
-			h1 "page-files"
 			tk::dummy::3
+			h1 "page-files"
 		    }
 		    division class="apage" id="page-designer" [style display none] {
-			h1 "page-designer"
 			tk::dummy::3
+			h1 "page-designer"
 		    }
 		    division class="apage" id="page-coder" [style display none] {
-			h1 "page-coder"
 			tk::dummy::3
+			h1 "page-coder"
 		    }
 		}
 	    }
