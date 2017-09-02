@@ -1,7 +1,7 @@
 var app = {};
 
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2017-09-01 14:38:48 (melify)>
+//// Time-stamp: <2017-09-02 10:48:51 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 app.init = function() {
     console.group("app.init");
@@ -11,10 +11,16 @@ app.init = function() {
     $('body').attr('id','wc');
 
     wc.subscribe("wc-header", function(e) {
+	let id = e.detail.id;
+
 	console.info("app.js 'wc-header' subscription was triggered:", JSON.stringify(e.detail));
 	
 	$(".apage").hide(0, function() {
-	    $("#page-" + e.detail.id).show(0);
+	    $("wc-header li a").removeClass("active");
+
+	    $("#page-" + id).show(0);
+
+	    $("#" + id).addClass("active");
 	});
     });
 
