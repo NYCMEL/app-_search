@@ -17,27 +17,19 @@
 *
 ****HEADE*****************************************************************/
 
-@font-face {font-family: "Roboto";src: url("/GitHub/fonts/apache/roboto/Roboto-Regular.ttf") format("truetype");}
-@font-face {font-family: "Oswald";src: url("/GitHub/fonts/ofl/oswald/Oswald-Regular.ttf") format("truetype");}
-@font-face {font-family: "Oswald-light";src: url("/GitHub/fonts/ofl/oswald/Oswald-Light.ttf") format("truetype");}
-@font-face {font-family: "Oswald-bold";src: url("/GitHub/fonts/ofl/oswald/Oswald-Bold.ttf") format("truetype");}
-
-@color-primary : #3bafdA;
-@color-hover   : saturate(@color-primary, 10%);
-@color-focus   : desaturate(@color-primary, 10%);
-@color-disable : lightness(desaturate(@color-primary, 100%), 30%);
-
-@body-bg: #FFF;
-@body-fg: contrast(@body-bg);
- 
 body {
-    .oswald       {font-family: Oswald}
-    .oswald-bold  {font-family: Oswald-bold}
-    .oswald-light {font-family: Oswald-light}
-    .roboto       {font-family: Roboto}
-
     .wc-header-cog, .wc-header-logout {
 	display: none;
+    }
+    
+    wc-header {
+	li {
+	    a {
+		&.active {
+		    color: lighten(#1897D4, 20%)!important;
+		}
+	    }
+	}
     }
 
     #home {
