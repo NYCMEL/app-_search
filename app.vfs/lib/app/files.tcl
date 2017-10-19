@@ -96,14 +96,21 @@ m::proc -public files::guts {
     variable _id [id]
     
     division id="${_id}" {
-	division class="page-header" {
-	    h1 "[namespace current] <small>sub text goes here</small>"
-	}
-
 	division class="container" {
 	    division class="row" {
 		division class="col-md-3" {
-		    p [lorem 50]
+		    bullet_list class="list-group" {
+			for {set i 0} {$i < 18} {incr i} {
+			    if {$i == 3} {
+				set state "active"
+			    } else {
+				set state ""
+			    }
+
+			    put [url "[lorem 3]" "#" class="list-group-item $state"]
+			}
+		    }
+
 		}
 		division class="col-md-8" {
 		    put [file:read $::starkit::topdir/data/tmp/tabs.html]
