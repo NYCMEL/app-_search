@@ -94,13 +94,13 @@ m::proc -public home::guts {
 	division class="container" {
 	    division class="row" {
 		division class="col-md-12" {
-		    division class="apage" id="page-files" {
+		    division class="apage" id="page-f1" {
 			f1::init
 		    }
-		    division class="apage" id="page-designer" [style display none] {
+		    division class="apage" id="page-f2" [style display none] {
 			f2::init
 		    }
-		    division class="apage" id="page-coder" [style display none] {
+		    division class="apage" id="page-f3" [style display none] {
 			f3::init
 		    }
 		}
