@@ -17,51 +17,51 @@
 #
 ###HEADE###################################################################
 
-namespace eval coder {}
+namespace eval f3 {}
 
-include "/inc/coder.css"
-include "/inc/coder.js"
+include "/inc/f3.css"
+include "/inc/f3.js"
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public coder::id {
+m::proc -public f3::id {
 } {
     Documentation goes here...
 } {
     Trace
     
-    return "coder"
+    return "f3"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public coder::narrative {
+m::proc -public f3::narrative {
 } {
     Documentation goes here...
 } {
     Trace
 
-    put "this is our coder page"
+    put "this is our f3 page"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public coder::title {
+m::proc -public f3::title {
 } {
     Documentation goes here...
 } {
     Trace
     
-    return "coder"
+    return "f3"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public coder::template {
+m::proc -public f3::template {
 } {
     Documentation goes here...
 } {
@@ -73,7 +73,7 @@ m::proc -public coder::template {
 ######################################################
 ##### 
 ######################################################
-m::proc -public coder::init {
+m::proc -public f3::init {
 } {
     Documentation goes here...
 } {    
@@ -86,7 +86,7 @@ m::proc -public coder::init {
 ######################################################
 ##### 
 ######################################################
-m::proc -public coder::guts {
+m::proc -public f3::guts {
 } {
     Documentation goes here...
 } {    

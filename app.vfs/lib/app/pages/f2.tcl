@@ -17,51 +17,51 @@
 #
 ###HEADE###################################################################
 
-namespace eval designer {}
+namespace eval f2 {}
 
-include "/inc/designer.css"
-include "/inc/designer.js"
+include "/inc/f2.css"
+include "/inc/f2.js"
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public designer::id {
+m::proc -public f2::id {
 } {
     Documentation goes here...
 } {
     Trace
     
-    return "designer"
+    return "f2"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public designer::narrative {
+m::proc -public f2::narrative {
 } {
     Documentation goes here...
 } {
     Trace
 
-    put "this is our designer page"
+    put "this is our f2 page"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public designer::title {
+m::proc -public f2::title {
 } {
     Documentation goes here...
 } {
     Trace
     
-    return "designer"
+    return "f2"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public designer::template {
+m::proc -public f2::template {
 } {
     Documentation goes here...
 } {
@@ -73,7 +73,7 @@ m::proc -public designer::template {
 ######################################################
 ##### 
 ######################################################
-m::proc -public designer::init {
+m::proc -public f2::init {
 } {
     Documentation goes here...
 } {    
@@ -86,7 +86,7 @@ m::proc -public designer::init {
 ######################################################
 ##### 
 ######################################################
-m::proc -public designer::guts {
+m::proc -public f2::guts {
 } {
     Documentation goes here...
 } {    

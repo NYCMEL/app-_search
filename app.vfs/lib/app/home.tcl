@@ -95,13 +95,13 @@ m::proc -public home::guts {
 	    division class="row" {
 		division class="col-md-12" {
 		    division class="apage" id="page-files" {
-			files::init
+			f1::init
 		    }
 		    division class="apage" id="page-designer" [style display none] {
-			designer::init
+			f2::init
 		    }
 		    division class="apage" id="page-coder" [style display none] {
-			coder::init
+			f3::init
 		    }
 		}
 	    }

@@ -17,53 +17,51 @@
 #
 ###HEADE###################################################################
 
-namespace eval files {
-}
+namespace eval f1 {}
 
-
-include "/inc/files.css"
-include "/inc/files.js"
+include "/inc/f1.css"
+include "/inc/f1.js"
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public files::id {
+m::proc -public f1::id {
 } {
     Documentation goes here...
 } {
     Trace
     
-    return "files"
+    return "f1"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public files::narrative {
+m::proc -public f1::narrative {
 } {
     Documentation goes here...
 } {
     Trace
 
-    put "this is our files page"
+    put "this is our f1 page"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public files::title {
+m::proc -public f1::title {
 } {
     Documentation goes here...
 } {
     Trace
     
-    return "files"
+    return "f1"
 }
 
 ######################################################
 ##### 
 ######################################################
-m::proc -public files::template {
+m::proc -public f1::template {
 } {
     Documentation goes here...
 } {
@@ -75,7 +73,7 @@ m::proc -public files::template {
 ######################################################
 ##### 
 ######################################################
-m::proc -public files::init {
+m::proc -public f1::init {
 } {
     Documentation goes here...
 } {    
@@ -88,7 +86,7 @@ m::proc -public files::init {
 ######################################################
 ##### 
 ######################################################
-m::proc -public files::guts {
+m::proc -public f1::guts {
 } {
     Documentation goes here...
 } {    
