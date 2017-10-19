@@ -100,7 +100,16 @@ m::proc -public files::guts {
 	    h1 "[namespace current] <small>sub text goes here</small>"
 	}
 
-	tk::dummy::3
+	division class="container" {
+	    division class="row" {
+		division class="col-md-3" {
+		    p [lorem 50]
+		}
+		division class="col-md-8" {
+		    put [file:read $::starkit::topdir/data/tmp/tabs.html]
+		}
+	    }
+	}
     }
 }
 
