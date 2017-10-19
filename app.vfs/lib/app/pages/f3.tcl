@@ -19,8 +19,8 @@
 
 namespace eval f3 {}
 
-include "/inc/f3.css"
-include "/inc/f3.js"
+#include "/inc/f3.css"
+#include "/inc/f3.js"
 
 ######################################################
 ##### 

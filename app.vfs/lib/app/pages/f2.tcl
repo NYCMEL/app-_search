@@ -19,8 +19,8 @@
 
 namespace eval f2 {}
 
-include "/inc/f2.css"
-include "/inc/f2.js"
+#include "/inc/f2.css"
+#include "/inc/f2.js"
 
 ######################################################
 ##### 
