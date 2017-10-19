@@ -30,7 +30,8 @@ set isolate	"1"
 # THE PATH TO THIS LINE
 ##############################################################################
 lappend auto_path\
-    $::starkit::topdir/lib/app
+    $::starkit::topdir/lib/app\
+    $::starkit::topdir/lib/app/pages
 
 source $TKSERVER/tk/lib/paths.tcl
 
