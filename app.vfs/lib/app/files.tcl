@@ -98,7 +98,7 @@ m::proc -public files::guts {
     division id="${_id}" {
 	division class="container" {
 	    division class="row" {
-		division class="col-md-3" {
+		division class="col-md-3" [style padding-left 0] {
 		    bullet_list class="list-group" {
 			for {set i 0} {$i < 18} {incr i} {
 			    if {$i == 3} {
@@ -112,7 +112,7 @@ m::proc -public files::guts {
 		    }
 
 		}
-		division class="col-md-8" {
+		division class="col-md-9" {
 		    put [file:read $::starkit::topdir/data/tmp/tabs.html]
 		}
 	    }
