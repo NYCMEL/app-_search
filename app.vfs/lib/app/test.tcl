@@ -61,3 +61,30 @@ m::proc -public test::init {
 
     tk::test:procs
 }
+
+######################################################
+##### 
+######################################################
+m::proc -public test::panel {
+} {
+    Documentation goes here...
+} {    
+    Trace
+    variable _id [id]
+
+    put {
+	<wc-panel id="my-panel-1" collapsible="true" height="250px" class="uxcoe">
+	<wc-panel-header>My Panel Header</wc-panel-header>
+	<wc-panel-body>
+	<h5>Panel content goes here</h5>
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+	At vero eos et accusam et justo duo dolores et ea rebum.
+	Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+	sed diam nonumy eirmod tempor 
+	</wc-panel-body>
+	<wc-panel-footer>My Panel Footer</wc-panel-footer>
+	</wc-panel>
+    }
+}
