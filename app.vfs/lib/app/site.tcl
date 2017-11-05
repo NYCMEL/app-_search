@@ -77,7 +77,7 @@ m::proc -private Site::head {
 
 	# USED FROM W3C JS FOLDER
 	include "/tk/jquery/scripts/jquery-2.1.4.min.js"
-
+	
 	# REQUIRED BY MTK
 	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
     }
@@ -110,13 +110,14 @@ m::proc -private Site::body {
 	}
     }
 
-    if {0} {
+    # IN main.tcl
+    if {$::environment == "prod"} {;
+	include "/tk/lib/components/w3c/dist/wc.base.min.js"
+	include "/tk/lib/components/w3c/dist/wc.form.min.js"
+    } else {
 	include "/tk/lib/components/w3c/js/wc.common.min.js"
 	include "/tk/lib/components/w3c/js/wc.components.js"
 	include "/tk/lib/components/w3c/js/wc.form.min.js"
-    } else {
-	include "/tk/lib/components/w3c/dist/wc.base.min.js"
-	include "/tk/lib/components/w3c/dist/wc.form.min.js"
     }
 
     include "/inc/app.js"
