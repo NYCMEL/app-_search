@@ -74,6 +74,10 @@ m::proc -private Site::head {
 	}
 
 	include "/inc/app.css"
+
+	# REQUIRED BY MTK
+	include "/tk/jquery/scripts/jquery.min.js"
+	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
     }
 }
 
