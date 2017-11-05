@@ -120,5 +120,7 @@ m::proc -public test::panel:s {
 
     parray v
 
+    put "<pre>[quote_html [subst $hstr]]</pre>"
+
     put [subst $hstr]
 }
