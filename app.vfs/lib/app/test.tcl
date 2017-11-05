@@ -99,28 +99,35 @@ m::proc -public test::panel:s {
     Trace
     variable _id [id]
 
-    set hstr {
-	<wc-panel id="$v(id)" collapsible="$v(collapsible)" height="$v(height)">
-	<wc-panel-header>$v(header)</wc-panel-header>
-	<wc-panel-body>
-	$v(body)
-	</wc-panel-body>
-	<wc-panel-footer>$v(footer)</wc-panel-footer>
-	</wc-panel>
+    br
+    division class="container" {
+	division class="row" {
+	    division class="col-md-12" {
+		set hstr {
+		    <wc-panel id="$v(id)" collapsible="$v(collapsible)" height="$v(height)">
+		    <wc-panel-header>$v(header)</wc-panel-header>
+		    <wc-panel-body>
+		    $v(body)
+		    </wc-panel-body>
+		    <wc-panel-footer>$v(footer)</wc-panel-footer>
+		    </wc-panel>
+		}
+
+		array set v [subst {
+		    id		"panel-1"
+		    collapsible	"true"
+		    height		"400px"
+		    header		"Mel Was Here"
+		    body		"[lorem 30]"
+		    footer		"Mel was here too..."
+		}]
+
+		parray v
+
+		put "<pre>[quote_html [subst $hstr]]</pre>"
+
+		put [subst $hstr]
+	    }
+	}
     }
-
-    array set v [subst {
-	id		"panel-1"
-	collapsible	"true"
-	height		"400px"
-	header		"Mel Was Here"
-	body		"[lorem 30]"
-	footer		"Mel was here too..."
-    }]
-
-    parray v
-
-    put "<pre>[quote_html [subst $hstr]]</pre>"
-
-    put [subst $hstr]
 }
