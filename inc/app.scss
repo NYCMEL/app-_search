@@ -18,10 +18,18 @@
 ****HEADE*****************************************************************/
 
 body {
-    #home {
-	clear:both;
+    font-family: Arial;
+
+    .template-header {
+    }
+
+    .guts {
 	display: block;
-	border:1px red dashed;
-	min-height:100px;
+    }
+
+    .template-footer {
+	margin-top:20px;
+	color: #999!important;
+	font-size:12px;
     }
 }
