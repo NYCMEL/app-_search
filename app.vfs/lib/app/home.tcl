@@ -91,12 +91,6 @@ m::proc -public home::guts {
     variable _id [id]
     
     division id="${_id}" {
-	division class="container-fluid" {
-	    division class="row" {
-		division class="col-md-12" {
-		    tk::dummy::3
-		}
-	    }
-	}
+	tk::dummy::3
     }
 }
