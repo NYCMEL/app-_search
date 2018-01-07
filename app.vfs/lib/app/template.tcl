@@ -32,7 +32,13 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    h1 "template::header"
+    division class="container-fluid" {
+	division class="row" {
+	    division class="col-md-12" {
+		h1 "template::header"
+	    }
+	}
+    }
 }
 
 ######################################################
@@ -45,7 +51,13 @@ m::proc -public template::1::footer {
     Trace
     
     br
-    h1 "template::footer"
+    division class="container-fluid" {
+	division class="row" {
+	    division class="col-md-12" {
+		h1 "template::footer"
+	    }
+	}
+    }
 }
 
 ######################################################
@@ -74,33 +86,15 @@ m::proc -public template::1 {
     tk::comment "template::1" {
 	division class="template" id="template" {
 	    division class="template-header" id="template-header" {
-		division class="container-fluid" {
-		    division class="row" {
-			division class="col-md-12" {
-			    template::1::header
-			}
-		    }
-		}
+		template::1::header
 	    }
 
 	    division class="template-guts" id="template-guts" {
-		division class="container-fluid" {
-		    division class="row" {
-			division class="col-md-12" {
-			    uplevel guts
-			}
-		    }
-		}
+		uplevel guts
 	    }
 
 	    division class="template-footer" id="template-footer" {
-		division class="container-fluid" {
-		    division class="row" {
-			division class="col-md-12" {
-			    template::1::footer
-			}
-		    }
-		}
+		template::1::footer
 	    }
 	}
     }

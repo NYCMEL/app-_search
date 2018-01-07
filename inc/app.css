@@ -16,8 +16,8 @@
 *  along with this program.  If not, see http://www.gnu.org/licenses.
 *
 ****HEADE*****************************************************************/
-body .wc-header-cog, body .wc-header-logout {
-  display: none; }
-
-body wc-header li a.active {
-  color: #64c1ee !important; }
+body #home {
+  clear: both;
+  display: block;
+  border: 1px red dashed;
+  min-height: 100px; }

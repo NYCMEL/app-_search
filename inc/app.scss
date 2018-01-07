@@ -18,20 +18,10 @@
 ****HEADE*****************************************************************/
 
 body {
-    .wc-header-cog, .wc-header-logout {
-	display: none;
-    }
-    
-    wc-header {
-	li {
-	    a {
-		&.active {
-		    color: lighten(#1897D4, 20%)!important;
-		}
-	    }
-	}
-    }
-
     #home {
+	clear:both;
+	display: block;
+	border:1px red dashed;
+	min-height:100px;
     }
 }

@@ -91,6 +91,19 @@ m::proc -public home::guts {
     variable _id [id]
     
     division id="${_id}" {
-	tk::dummy::3
+	division class="container-fluid" {
+	    division class="row" {
+		division class="col-md-6" {
+		    tag wc-panel id="my-panel-1" collapsible="true" height="250px" {
+			tag wc-panel-header {
+			    put "My Panel Header"
+			}
+			tag wc-panel-body {
+			    p [lorem 100]
+			}
+		    }
+		}
+	    }
+	}
     }
 }
