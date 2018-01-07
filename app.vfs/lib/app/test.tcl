@@ -85,6 +85,20 @@ m::proc -public test::comp {
 		    }
 		}
 	    }
+	    division class="col-md-6" {
+		tag wc-accordion id="my-accordion" active="0" single="true" style="border:10px red solid" {
+		    foreach i {1 2 3} {
+			tag wc-panel id="my-panel-$i" collapsible="true" {
+			    tag wc-panel-header {
+				put "My Panel Header $i"
+			    }
+			    tag wc-panel-body {
+				tk::dummy::3
+			    }
+			}
+		    }
+		}
+	    }
 	}
     }
 }
