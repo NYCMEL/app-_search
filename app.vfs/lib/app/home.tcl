@@ -91,7 +91,7 @@ m::proc -public home::guts {
     variable _id [id]
     
     division id="${_id}" {
-	division class="container-fluid" {
+	division class="container$::fluid" {
 	    division class="row" {
 		division class="col-md-6" {
 		    tag wc-panel id="my-panel-1" collapsible="true" height="250px" {

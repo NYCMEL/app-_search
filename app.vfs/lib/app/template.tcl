@@ -32,13 +32,7 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    division class="container-fluid" {
-	division class="row" {
-	    division class="col-md-12" {
-		h1 "template::header"
-	    }
-	}
-    }
+    put [subst [file:read "/Melify/mtk/dev/app/wcw/app.vfs/data/navbar.public.html"]]
 }
 
 ######################################################
@@ -51,7 +45,7 @@ m::proc -public template::1::footer {
     Trace
     
     br
-    division class="container-fluid" {
+    division class="container$::fluid" {
 	division class="row" {
 	    division class="col-md-12" {
 		h1 "template::footer"
