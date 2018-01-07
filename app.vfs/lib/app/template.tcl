@@ -77,17 +77,19 @@ m::proc -public template::1 {
     Trace
     
     tk::comment "template::1" {
-	division class="template" id="template" {
-	    division class="template-header" id="template-header" {
-		template::1::header
-	    }
+	division id="wc" {
+	    division class="template" id="template" {
+		division class="template-header" id="template-header" {
+		    template::1::header
+		}
 
-	    division class="template-guts" id="template-guts" {
-		uplevel guts
-	    }
+		division class="template-guts" id="template-guts" {
+		    uplevel guts
+		}
 
-	    division class="template-footer" id="template-footer" {
-		template::1::footer
+		division class="template-footer" id="template-footer" {
+		    template::1::footer
+		}
 	    }
 	}
     }
