@@ -63,7 +63,9 @@ m::proc -public template::0 {
     Trace
 
     tk::comment "template::0" {
-	uplevel guts
+	division id="wc" {
+	    uplevel guts
+	}
     }
 }
 
