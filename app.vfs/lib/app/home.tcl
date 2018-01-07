@@ -104,6 +104,17 @@ m::proc -public home::guts {
 		    }
 		}
 		division class="col-md-6" {
+		    tag wc-stepper id="my-stepper" {
+			tag wc-step class="is-link" {
+			    put "Step 1"
+			}
+			tag wc-step class="is-current" {
+			    put "Step 2"
+			}
+			tag wc-step class="is-link" {
+			    put "Step 3"
+			}
+		    }
 		}
 	    }
 	}
