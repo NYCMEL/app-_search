@@ -16,8 +16,13 @@
 *  along with this program.  If not, see http://www.gnu.org/licenses.
 *
 ****HEADE*****************************************************************/
-body #home {
-  clear: both;
-  display: block;
-  border: 1px red dashed;
-  min-height: 100px; }
+body {
+  font-family: Arial; }
+
+body .guts {
+  display: block; }
+
+body .template-footer {
+  margin-top: 20px;
+  color: #999 !important;
+  font-size: 12px; }
