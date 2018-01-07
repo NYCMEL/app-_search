@@ -1,7 +1,7 @@
 var app = {};
 
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2017-10-19 08:31:26 (melify)>
+//// Time-stamp: <2018-01-07 09:28:37 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 app.init = function() {
     console.group("app.init");
@@ -10,7 +10,7 @@ app.init = function() {
     
     $('body').attr('id','wc');
 
-    wc.subscribe("wc-header", function(e) {
+    wcSubscribe("wc-header", function(e) {
 	let id = e.detail.id;
 
 	console.info("app.js 'wc-header' subscription was triggered:", JSON.stringify(e.detail));
@@ -24,7 +24,7 @@ app.init = function() {
 	});
     });
 
-    wc.subscribe("wc-footer", function(e) {
+    wcSubscribe("wc-footer", function(e) {
 	console.info("app.js 'wc-footer' subscription was triggered:", JSON.stringify(e.detail));
     });
 

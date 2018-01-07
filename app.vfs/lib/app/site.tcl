@@ -64,15 +64,7 @@ m::proc -private Site::head {
 
     tk::comment "Site::head" {
 	include "/tk/lib/components/w3c//ext/fa/css/font-awesome.min.css"
-
-	if {0} {
-	    include "/tk/lib/components/w3c/scss/wc.common.css"
-	    include "/tk/lib/components/w3c/scss/wc.form.min.css"
-	} else {
-	    include "/tk/lib/components/w3c/dist/wc.base.min.css"
-	    include "/tk/lib/components/w3c/dist/wc.form.css"
-	}
-
+	include "/tk/lib/components/wc/dist/wc.min.css"
 	include "/inc/app.css"
 
 	# USED FROM W3C JS FOLDER
@@ -110,16 +102,7 @@ m::proc -private Site::body {
 	}
     }
 
-    # IN main.tcl
-    if {$::environment == "prod"} {;
-	include "/tk/lib/components/w3c/dist/wc.base.min.js"
-	include "/tk/lib/components/w3c/dist/wc.form.min.js"
-    } else {
-	include "/tk/lib/components/w3c/js/wc.common.min.js"
-	include "/tk/lib/components/w3c/js/wc.components.js"
-	include "/tk/lib/components/w3c/js/wc.form.min.js"
-    }
-
+    include "/tk/lib/components/wc/dist/wc.min.js"
     include "/inc/app.js"
 }
 

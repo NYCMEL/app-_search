@@ -23,7 +23,6 @@ set TKSERVER [expr {0 ? "http://www.melify.com" : "/Melify/mtk/$ENV"}]
 set fluid       ""; # ACCEPTABLE VALUES ARE EITHER "" OR "-fluid"
 set company	"Melify"
 set isolate	"1"
-set environment	"prod"
 
 ##############################################################################
 # NEED THIS LINE TO TALK TO YOUR CODE IN APP DIRECTORY
@@ -31,8 +30,7 @@ set environment	"prod"
 # THE PATH TO THIS LINE
 ##############################################################################
 lappend auto_path\
-    $::starkit::topdir/lib/app\
-    $::starkit::topdir/lib/app/pages
+    $::starkit::topdir/lib/app
 
 source $TKSERVER/tk/lib/paths.tcl
 

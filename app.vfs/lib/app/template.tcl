@@ -32,7 +32,7 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    put [subst [file:read $::starkit::topdir/data/tmp/header.html]];br
+    h1 "template::header"
 }
 
 ######################################################
@@ -45,7 +45,7 @@ m::proc -public template::1::footer {
     Trace
     
     br
-    put [subst [file:read $::starkit::topdir/data/tmp/footer.html]]
+    h1 "template::footer"
 }
 
 ######################################################
@@ -76,9 +76,11 @@ m::proc -public template::1 {
 	    division class="template-header" id="template-header" {
 		template::1::header
 	    }
+
 	    division {
 		uplevel guts
 	    }
+
 	    division class="template-footer" id="template-footer" {
 		template::1::footer
 	    }
