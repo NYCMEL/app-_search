@@ -133,6 +133,9 @@ m::proc -public test::login {
 		    }
 		}
 	    }
+	    division class="col-md-8" {
+		tk::dummy::3
+	    }
 	}
     }
 }
