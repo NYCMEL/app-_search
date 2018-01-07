@@ -117,6 +117,16 @@ m::proc -public home::guts {
 		    }
 		}
 	    }
+	    division class="row" {
+		division class="col-md-12" {
+		    #datatable="{'pagination':false, 'search':true, 'info':false, 'height':300}"
+
+		    br
+		    tag wc-table id="my-table" class="table table-striped" json="/tk/lib/components/wc/cfg/table.json" {
+			#<!-- WILL BE POPULATED WITH JSON CONTENT -->
+		    }
+		}
+	    }
 	}
     }
 }
