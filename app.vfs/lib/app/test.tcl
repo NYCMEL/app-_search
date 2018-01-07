@@ -59,7 +59,9 @@ m::proc -public test::init {
     Trace
     variable _id [id]
 
-    tk::test:procs
+    division id="wc" {
+	tk::test:procs
+    }
 }
 
 ######################################################
@@ -73,7 +75,7 @@ m::proc -public test::comp {
     variable _id [id]
 
     br
-    division class="container" {
+    division class="container" id="wc" {
 	division class="row" {
 	    division class="col-md-6" {
 		tag wc-panel id="my-panel-1" collapsible="true" height="250px" {
@@ -95,6 +97,38 @@ m::proc -public test::comp {
 			    tag wc-panel-body {
 				tk::dummy::3
 			    }
+			}
+		    }
+		}
+	    }
+	}
+    }
+}
+
+######################################################
+##### 
+######################################################
+m::proc -public test::login {
+} {
+    Documentation goes here...
+} {    
+    Trace
+    variable _id [id]
+
+    br
+    division class="container" id="wc" [style margin 100px] {
+	division class="row" {
+	    division class="col-md-4" {
+		tag wc-form name="form-1" role="form" id="form-1" method="POST" action="/mtk/render" size="input-md" {
+		    tag wc-text name="v(email)" id="email" label="Email" placeholder="your email..." columns="4,8" data-key="email" required {}
+		    tag wc-text name="v(paswd)" id="paswd" label="Password" placeholder="your paswd..." columns="4,8" data-key="paswd" required type="password" {}
+		    
+		    hr
+		    division class="form-group" {
+			division class="col-md-4" {
+			}
+			division class="col-md-8" {
+			    submit_button action=Login class="btn btn-primary"
 			}
 		    }
 		}
