@@ -120,7 +120,7 @@ m::proc -public test::login {
 	division class="row" {
 	    division class="col-md-4" {
 		tag wc-form name="form-1" role="form" id="form-1" method="POST" action="/mtk/render" size="input-md" {
-		    tag wc-text name="v(email)" id="email" label="Email" placeholder="your email..." columns="4,8" data-key="email" required {}
+		    tag wc-text name="v(email)" id="email" label="Email" placeholder="your email..." columns="4,8" data-key="email" required pattern="email" data-error="like: mel@melify.com" {}
 		    tag wc-text name="v(paswd)" id="paswd" label="Password" placeholder="your paswd..." columns="4,8" data-key="paswd" required type="password" {}
 		    
 		    hr
