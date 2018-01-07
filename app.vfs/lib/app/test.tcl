@@ -65,7 +65,7 @@ m::proc -public test::init {
 ######################################################
 ##### 
 ######################################################
-m::proc -public test::panel {
+m::proc -public test::comp {
 } {
     Documentation goes here...
 } {    
@@ -76,28 +76,14 @@ m::proc -public test::panel {
     division class="container" {
 	division class="row" {
 	    division class="col-md-6" {
-		set hstr {
-		    <wc-panel id="$v(id)" collapsible="$v(collapsible)" height="$v(height)" class="uxcoe">
-		    <wc-panel-header>$v(header)</wc-panel-header>
-		    <wc-panel-body>
-		    <h5>$v(pheader)</h5>
-		    $v(body)
-		    </wc-panel-body>
-		    <wc-panel-footer>$v(footer)</wc-panel-footer>
-		    </wc-panel>
+		tag wc-panel id="my-panel-1" collapsible="true" height="250px" {
+		    tag wc-panel-header {
+			put "My Panel Header"
+		    }
+		    tag wc-panel-body {
+			p [lorem 100]
+		    }
 		}
-
-		array set v [subst {
-		    id		"panel-1"
-		    collapsible	"true"
-		    height	"200px"
-		    header	"Panel Title Goes here..."
-		    pheader	"body header"
-		    body	"[lorem 50]"
-		    footer	"Mel was here too..."
-		}]
-
-		put [subst $hstr]
 	    }
 	}
     }
