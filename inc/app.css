@@ -19,6 +19,14 @@
 body {
   margin-top: 70px; }
 
+body .template-header .site-search-button,
+body .template-header .site-search-input {
+  border: 0;
+  margin: 0;
+  padding: 5px 10px;
+  height: 30px;
+  opacity: 0.6; }
+
 body .template-footer {
   margin-top: 20px;
   color: #999;

@@ -21,6 +21,14 @@ body {
     margin-top: 70px;
 
     .template-header {
+	.site-search-button,
+	.site-search-input {
+	    border: 0;
+	    margin: 0;
+	    padding: 5px 10px;
+	    height: 30px;
+	    opacity:0.6;
+	}
     }
 
     .template-guts {
