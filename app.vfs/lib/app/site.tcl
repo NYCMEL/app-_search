@@ -67,12 +67,6 @@ m::proc -private Site::head {
 
 	include "/tk/lib/components/w/dist/w3c.p.min.css"
 	include "/inc/app.css"
-	
-	# USED FROM W3C JS FOLDER
-	include "/tk/jquery/scripts/jquery-2.1.4.min.js"
-	
-	# REQUIRED BY MTK
-	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
     }
 }
 
