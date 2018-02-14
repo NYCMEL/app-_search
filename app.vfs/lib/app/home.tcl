@@ -94,36 +94,63 @@ m::proc -public home::guts {
 	division class="container$::fluid" {
 	    division class="row" {
 		division class="col-md-6" {
-		    tag wc-panel id="my-panel-1" collapsible="true" height="250px" {
-			tag wc-panel-header {
-			    put "My Panel Header"
-			}
-			tag wc-panel-body {
-			    p [lorem 100]
-			}
-		    }
-		}
-		division class="col-md-6" {
-		    tag wc-stepper id="my-stepper" {
-			tag wc-step class="is-link" {
-			    put "Step 1"
-			}
-			tag wc-step class="is-current" {
-			    put "Step 2"
-			}
-			tag wc-step class="is-link" {
-			    put "Step 3"
-			}
-		    }
-		}
-	    }
-	    division class="row" {
-		division class="col-md-12" {
-		    #datatable="{'pagination':false, 'search':true, 'info':false, 'height':300}"
+		    put {
+		<wc-form name="my-form" role="form" id="my-form" size="form-control-md" style="border:1px #CECECE solid;padding:20px">
+		    <div class="row">
+			<div class="col-md-6">
+			    <wc-text name="v(uname)" id="uname-1" label="Full Name" placeholder="your name goes here..." columns="4,8"
+				     value="Mel Heravi" data-key="uname1" required></wc-text>
+			    <wc-text name="v(email)" id="email-1" label="Email" placeholder="your email here..." columns="4,8" type="email"
+				     pattern="email" value="mel@melify.com" required></wc-text>
+			    <wc-text name="v(phone)" id="phone-1" label="Phone" placeholder="Like: 212-555-5555"
+				     data-key="phone1" pattern="phone" columns="4,8" help="Phone number is NOT required"
+				     data-error="Format like 212-555-5555"></wc-text>
 
-		    br
-		    tag wc-table id="my-table" class="table table-striped" json="/tk/lib/components/wc/cfg/table.json" {
-			#<!-- WILL BE POPULATED WITH JSON CONTENT -->
+			    <wc-calendar id="my-calendar" name="adate" label="Date" columns="4,8" placeholder="mm/dd/yyyy"
+					 help="date is a required field" data-error="must be a date format..." required>
+			    </wc-calendar>
+			    
+			    <wc-groupbox id="groupbox-1" name="v(gbox)" label="Fav Fruit" columns="4,8" help="Please select one">
+				<div class="pull-left">
+				    <wc-radiobutton id="fruit-apple" name="v(fruit)" label="Apple"  value="1" required></wc-radiobutton>
+				</div>
+				<div class="pull-left">
+				    <wc-radiobutton id="fruit-orange" name="v(fruit)" label="Orange" value="2"></wc-radiobutton>
+				</div>
+				<div class="pull-left">
+				    <wc-radiobutton id="fruit-peach" name="v(fruit)" label="Peach"  value="3"></wc-radiobutton>
+				</div>
+			    </wc-groupbox>
+
+			    <wc-groupbox id="groupbox-2" name="v(gbox2)" label="Agreements" columns="4,8" help="You must agree with Terms & Conditions">
+				<div class="pull-left">
+				    <wc-checkbox id="checkbox-1" name="v(agree)" label="I Agree" checked required></wc-checkbox>
+				</div>
+				<div class="pull-left">
+				    <wc-checkbox id="checkbox-2" name="v(signup)" label="Subscribe me"></wc-checkbox>
+				</div>
+			    </wc-groupbox>
+			</div>
+
+			<div class="col-md-6">
+			    <wc-select id="color-1" name="v(color)" data-key="color1" label="Fav Color" columns="4,8" help="Please pick a color" data-error="color is a required field" required searchable="true">
+				<option value="">[Please Select]</option>
+				<option value="1">1 = Red</option>
+				<option value="2">2 = White</option>
+				<option value="3">3 = Blue</option>
+			    </wc-select>
+			    
+			    <wc-textarea id="textarea-1" label="Notes" columns="4,8" placeholder="Your notes ..."  help="Notes is NOT a required field"></wc-textarea>
+			</div>
+			
+			<div class="col-md-12">
+			    <hr>
+			    <div class="form-group">
+				<input type="submit" name="action" value="LET'S GO" class="btn btn-primary" id="submit-btn-1">
+			    </div>
+			</div>
+		    </div>
+		</wc-form>
 		    }
 		}
 	    }
