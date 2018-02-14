@@ -11,7 +11,9 @@
 #
 ###HEADE###################################################################
 
-namespace eval Site {}
+namespace eval Site {
+    namespace eval body {}
+}
 
 ##################################################
 ##### 
@@ -63,16 +65,29 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
-	include "/tk/lib/components/w3c//ext/fa/css/font-awesome.min.css"
-	include "/tk/lib/components/wc/dist/wc.min.css"
+	include "/tk/lib/components/w/dist/w3c.d.css"
 	include "/inc/app.css"
-
+	
 	# USED FROM W3C JS FOLDER
 	include "/tk/jquery/scripts/jquery-2.1.4.min.js"
 	
 	# REQUIRED BY MTK
 	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
     }
+}
+
+##################################################
+##### 
+##################################################
+m::proc -private Site::body::args {
+} {
+    Documentaion goes here
+} {
+    Trace
+
+    return [subst {
+	id="wc" ng-app=[expr {([info exist ::ngapp] == "0") ? "melified" : "$::ngapp"}] ng-controller="MelifiedCtrl"
+    }]
 }
 
 ##################################################
@@ -102,7 +117,7 @@ m::proc -private Site::body {
 	}
     }
 
-    include "/tk/lib/components/wc/dist/wc.min.js"
+    include "/tk/lib/components/w/dist/w3c.d.js"
     include "/inc/app.js"
 }
 
