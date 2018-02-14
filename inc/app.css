@@ -27,6 +27,9 @@ body .template-header .site-search-input {
   height: 30px;
   opacity: 0.6; }
 
+body .template-header .site-search-input {
+  margin-right: -4px !important; }
+
 body .template-footer {
   margin-top: 20px;
   color: #999;
