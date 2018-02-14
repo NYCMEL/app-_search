@@ -18,18 +18,17 @@
 ****HEADE*****************************************************************/
 
 body {
-    font-family: Arial;
+    margin-top: 70px;
 
     .template-header {
     }
 
-    .guts {
-	display: block;
+    .template-guts {
     }
 
     .template-footer {
 	margin-top:20px;
-	color: #999!important;
+	color: #999;
 	font-size:12px;
     }
 }

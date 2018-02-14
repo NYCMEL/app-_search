@@ -17,12 +17,9 @@
 *
 ****HEADE*****************************************************************/
 body {
-  font-family: Arial; }
-
-body .guts {
-  display: block; }
+  margin-top: 70px; }
 
 body .template-footer {
   margin-top: 20px;
-  color: #999 !important;
+  color: #999;
   font-size: 12px; }
