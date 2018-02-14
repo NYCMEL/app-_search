@@ -11,9 +11,7 @@
 #
 ###HEADE###################################################################
 
-namespace eval Site {
-    namespace eval body {}
-}
+namespace eval Site {}
 
 ##################################################
 ##### 
@@ -65,7 +63,7 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
-	include "/tk/lib/components/w/dist/w3c.d.css"
+	include "/tk/lib/components/w/dist/w3c.p.min.css"
 	include "/inc/app.css"
 	
 	# USED FROM W3C JS FOLDER
@@ -74,20 +72,6 @@ m::proc -private Site::head {
 	# REQUIRED BY MTK
 	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
     }
-}
-
-##################################################
-##### 
-##################################################
-m::proc -private Site::body::args {
-} {
-    Documentaion goes here
-} {
-    Trace
-
-    return [subst {
-	id="wc" ng-app=[expr {([info exist ::ngapp] == "0") ? "melified" : "$::ngapp"}] ng-controller="MelifiedCtrl"
-    }]
 }
 
 ##################################################
@@ -117,7 +101,7 @@ m::proc -private Site::body {
 	}
     }
 
-    include "/tk/lib/components/w/dist/w3c.d.js"
+    include "/tk/lib/components/w/dist/w3c.p.min.js"
     include "/inc/app.js"
 }
 
