@@ -63,6 +63,8 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
+	tk::include::viewport
+
 	include "/tk/lib/components/w/dist/w3c.p.min.css"
 	include "/inc/app.css"
 	
