@@ -18,18 +18,28 @@
 ****HEADE*****************************************************************/
 
 body {
-    font-family: Arial;
+    margin-top: 70px;
 
     .template-header {
+	.site-search-button,
+	.site-search-input {
+	    border: 0;
+	    margin: 0;
+	    padding: 5px 10px;
+	    height: 30px;
+	    opacity:0.6;
+	}
+	.site-search-input {
+	    margin-right:-3px!important;
+	}
     }
 
-    .guts {
-	display: block;
+    .template-guts {
     }
 
     .template-footer {
 	margin-top:20px;
-	color: #999!important;
+	color: #999;
 	font-size:12px;
     }
 }
