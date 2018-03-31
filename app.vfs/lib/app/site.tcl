@@ -63,18 +63,11 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
-<<<<<<< HEAD
 	include "/tk/lib/components/w/dist/wc.bundle.css"
 	include "/tk/lib/components/w/dist/wc.bundle.js"
 	include "/tk/jquery/scripts/jquery.min.js"
 
 	include "/inc/app.js"
-=======
-	tk::include::viewport
-
-	include "/tk/lib/components/w/dist/w3c.p.min.css"
-	include "/inc/app.css"
->>>>>>> 4e549281e365ece2e37d554a77495c5e6c38e96e
     }
 }
 
@@ -104,12 +97,6 @@ m::proc -private Site::body {
 	    tk::error "$e"
 	}
     }
-<<<<<<< HEAD
-=======
-
-    include "/tk/lib/components/w/dist/w3c.p.min.js"
-    include "/inc/app.js"
->>>>>>> 4e549281e365ece2e37d554a77495c5e6c38e96e
 }
 
 ##################################################
