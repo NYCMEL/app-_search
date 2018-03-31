@@ -63,15 +63,11 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
-	include "/tk/lib/components/w3c//ext/fa/css/font-awesome.min.css"
-	include "/tk/lib/components/wc/dist/wc.min.css"
-	include "/inc/app.css"
+	include "/tk/lib/components/w/dist/wc.bundle.css"
+	include "/tk/lib/components/w/dist/wc.bundle.js"
+	include "/tk/jquery/scripts/jquery.min.js"
 
-	# USED FROM W3C JS FOLDER
-	include "/tk/jquery/scripts/jquery-2.1.4.min.js"
-	
-	# REQUIRED BY MTK
-	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
+	include "/inc/app.js"
     }
 }
 
@@ -101,9 +97,6 @@ m::proc -private Site::body {
 	    tk::error "$e"
 	}
     }
-
-    include "/tk/lib/components/wc/dist/wc.min.js"
-    include "/inc/app.js"
 }
 
 ##################################################

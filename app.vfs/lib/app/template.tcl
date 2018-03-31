@@ -32,7 +32,7 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    put [subst [file:read "/Melify/mtk/dev/app/wcw/app.vfs/data/navbar.public.html"]]
+    include "$::starkit::topdir/data/navbar.html"
 }
 
 ######################################################

@@ -94,37 +94,16 @@ m::proc -public home::guts {
 	division class="container$::fluid" {
 	    division class="row" {
 		division class="col-md-6" {
-		    tag wc-panel id="my-panel-1" collapsible="true" height="250px" {
-			tag wc-panel-header {
-			    put "My Panel Header"
-			}
-			tag wc-panel-body {
-			    p [lorem 100]
-			}
-		    }
-		}
-		division class="col-md-6" {
-		    tag wc-stepper id="my-stepper" {
-			tag wc-step class="is-link" {
-			    put "Step 1"
-			}
-			tag wc-step class="is-current" {
-			    put "Step 2"
-			}
-			tag wc-step class="is-link" {
-			    put "Step 3"
-			}
+		    put {
+			<wc-maker id="my-maker" uparam="{from:'Mel Heravi', to:'You', link:'http://www.melify.com'}" background="yellow" header="I AM A TEMPLATE <i class='fa fa-smile-o'></i>">
+			<h4><i class="fa fa-info-circle"></i> Used by maker to create consistent components</h4>
+			<p>you can click on me to get a callback</p>
+			</wc-maker>
 		    }
 		}
 	    }
 	    division class="row" {
 		division class="col-md-12" {
-		    #datatable="{'pagination':false, 'search':true, 'info':false, 'height':300}"
-
-		    br
-		    tag wc-table id="my-table" class="table table-striped" json="/tk/lib/components/wc/cfg/table.json" {
-			#<!-- WILL BE POPULATED WITH JSON CONTENT -->
-		    }
 		}
 	    }
 	}
