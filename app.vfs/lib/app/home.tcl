@@ -93,8 +93,17 @@ m::proc -public home::guts {
     division id="${_id}" {
 	division class="container$::fluid" {
 	    division class="row" {
-		division class="col-md-9" {
-		    h1 "HELLO MEL"
+		division class="col-md-6" {
+		    put {
+			<wc-maker id="my-maker" uparam="{from:'Mel Heravi', to:'You', link:'http://www.melify.com'}" background="yellow" header="I AM A TEMPLATE <i class='fa fa-smile-o'></i>">
+			<h4><i class="fa fa-info-circle"></i> Used by maker to create consistent components</h4>
+			<p>you can click on me to get a callback</p>
+			</wc-maker>
+		    }
+		}
+	    }
+	    division class="row" {
+		division class="col-md-12" {
 		}
 	    }
 	}
