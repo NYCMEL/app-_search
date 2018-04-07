@@ -63,7 +63,6 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
-	include "/tk/lib/components/w/dist/wc.bundle.css"
 	include "/inc/app.css"
     }
 }
