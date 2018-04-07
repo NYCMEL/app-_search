@@ -63,6 +63,7 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
+	br
 	include "/inc/app.css"
     }
 }
@@ -94,7 +95,7 @@ m::proc -private Site::body {
 	}
     }
 
-    include "/tk/lib/components/w/dist/wc.bundle.js"
+    include "/inc/bundle.js"
     include "/inc/app.js"
 }
 
