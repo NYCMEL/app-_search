@@ -65,7 +65,7 @@ m::proc -private Site::head {
     tk::comment "Site::head" {
 	tk::include::viewport
 
-	include "/tk/lib/components/w/dist/w3c.p.min.css"
+	include "/tk/lib/components/w/dist/wc.bundle.css"
 	include "/inc/app.css"
     }
 }
@@ -97,7 +97,7 @@ m::proc -private Site::body {
 	}
     }
 
-    include "/tk/lib/components/w/dist/w3c.p.min.js"
+    include "/tk/lib/components/w/dist/wc.bundle.js"
     include "/inc/app.js"
 }
 
