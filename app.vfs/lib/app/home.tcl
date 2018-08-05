@@ -101,9 +101,18 @@ m::proc -public home::guts {
 			</wc-maker>
 		    }
 		}
+
+		division class="col-md-6" {
+		    tag wc-maker id="my-maker-2" header="A TEMPLATE" {
+			h1 "HELLO MEL"
+			p "you can click on me to get a callback"
+		    }
+		}
 	    }
 	    division class="row" {
 		division class="col-md-12" {
+		    hr
+		    tk::dummy::3
 		}
 	    }
 	}
