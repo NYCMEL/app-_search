@@ -118,8 +118,7 @@ m::proc -public home::guts {
     javascript {
 	put {
 	    wc.ready(function() {
-		console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
-		alert("A")
+		console.log("AAAAAAAAAAAAAAAAAAAAAAAA: wc.ready");
 	    });
 	}
     }
