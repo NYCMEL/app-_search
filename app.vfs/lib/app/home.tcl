@@ -109,12 +109,18 @@ m::proc -public home::guts {
 		    }
 		}
 	    }
-	    division class="row" {
-		division class="col-md-12" {
-		    hr
-		    tk::dummy::3
-		}
-	    }
+	}
+    }
+
+    include "/tk/jquery/scripts/jquery.min.js"
+    include "/tk/lib/components/w/js/ext/wc.js"
+
+    javascript {
+	put {
+	    wc.ready(function() {
+		console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
+		alert("A")
+	    });
 	}
     }
 }
