@@ -95,8 +95,21 @@ m::proc -public home::guts {
 	    division class="row" {
 		division class="col-md-6" {
 		    division [style max-width 500px height 200px] class="shadow border border-info" {
-			h1 class="text-center pt-5" "HELLO MEL"
+			h1 class="text-center pt-5" "HELLO"
 		    }
+		}
+
+		division class="col-md-6" {
+		    division [style max-width 500px height 200px] class="shadow border border-info" {
+			h1 class="text-center pt-5" "MEL"
+		    }
+		}
+	    }
+
+	    division class="row" {
+		division class="col-md-12" {
+		    br
+		    tk::dummy::2
 		}
 	    }
 	}
