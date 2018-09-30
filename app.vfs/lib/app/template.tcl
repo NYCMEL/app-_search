@@ -32,7 +32,13 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    puts [subst [file:read "$::starkit::topdir/data/navbar.html"]]
+    division class="container$::fluid" {
+	division class="row" {
+	    division class="col-md-12" {
+		puts [subst [file:read "$::starkit::topdir/data/navbar.html"]]
+	    }
+	}
+    }
 }
 
 ######################################################
@@ -81,7 +87,7 @@ m::proc -public template::1 {
     tk::comment "template::1" {
 	division id="wc" {
 	    division class="template" id="template" {
-		division class="template-header" id="template-header" {
+		division class="template-header bg-light border" id="template-header" {
 		    template::1::header
 		}
 

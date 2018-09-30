@@ -20,7 +20,7 @@
 # USE MELIFY SERVER FOR ALL COMPONENTS OR THE LOCAL SERVER
 set TKSERVER [expr {0 ? "http://www.melify.com" : "/Melify/mtk/$ENV"}]
 
-set fluid       "-fluid"
+set fluid       ""
 set company	"Melify"
 set isolate	"1"
 
