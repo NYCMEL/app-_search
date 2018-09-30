@@ -94,7 +94,7 @@ m::proc -public home::guts {
 	division class="container$::fluid" {
 	    division class="row" {
 		division class="col-md-6" {
-		    division [style max-width 500px height 200px background wheat] class="shadow" {
+		    division [style max-width 500px height 200px] class="shadow border border-info" {
 			h1 class="text-center pt-5" "HELLO MEL"
 		    }
 		}
