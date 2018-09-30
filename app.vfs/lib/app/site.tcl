@@ -63,6 +63,10 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
+	put {
+	    <meta name="viewport"  content="width=device-width, initial-scale=1">
+	}
+
 	include "/inc/app.css"
 
 	include "/tk/lib/components/w/npm/node_modules/jquery/dist/jquery.min.js"

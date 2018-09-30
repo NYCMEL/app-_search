@@ -32,7 +32,7 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    include "$::starkit::topdir/data/navbar.html"
+    puts [subst [file:read "$::starkit::topdir/data/navbar.html"]]
 }
 
 ######################################################
