@@ -77,12 +77,6 @@ m::proc -private Site::body {
 } {
     Trace
 
-    if {$::userid == ""} {
-	set ::access "public"
-    } else {
-	set ::access "private"
-    }
-
     tk::comment "Site::body" {
 	if {[catch {
 	    if {[info exist ::callback] == 0} {
