@@ -65,7 +65,6 @@ m::proc -private Site::head {
     tk::comment "Site::head" {
 	include "/inc/app.css"
 
-	include "/tk/lib/components/w/npm/node_modules/document-register-element/build/document-register-element.js"
 	include "/tk/lib/components/w/npm/node_modules/jquery/dist/jquery.min.js"
 	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
 	include "/inc/wc.bundle.js"
