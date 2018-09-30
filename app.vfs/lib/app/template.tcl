@@ -87,7 +87,7 @@ m::proc -public template::1 {
     tk::comment "template::1" {
 	division id="wc" {
 	    division class="template" id="template" {
-		division class="template-header bg-light border" id="template-header" {
+		division class="template-header bg-light border-bottom" id="template-header" {
 		    template::1::header
 		}
 
