@@ -63,9 +63,12 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
-	br
 	include "/inc/app.css"
+
 	include "/tk/lib/components/w/npm/node_modules/document-register-element/build/document-register-element.js"
+	include "/inc/wc.bundle.js"
+	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
+	include "/inc/app.js"
     }
 }
 
@@ -90,8 +93,6 @@ m::proc -private Site::body {
 	}
     }
 
-    include "/inc/wc.bundle.js"
-    include "/inc/app.js"
 }
 
 ##################################################
