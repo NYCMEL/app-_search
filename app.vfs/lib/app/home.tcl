@@ -94,32 +94,11 @@ m::proc -public home::guts {
 	division class="container$::fluid" {
 	    division class="row" {
 		division class="col-md-6" {
-		    put {
-			<wc-maker id="my-maker" uparam="{from:'Mel Heravi', to:'You', link:'http://www.melify.com'}" background="yellow" header="I AM A TEMPLATE <i class='fa fa-smile-o'></i>">
-			<h4><i class="fa fa-info-circle"></i> Used by maker to create consistent components</h4>
-			<p>you can click on me to get a callback</p>
-			</wc-maker>
-		    }
-		}
-
-		division class="col-md-6" {
-		    tag wc-maker id="my-maker-2" header="A TEMPLATE" {
-			h1 "HELLO MEL"
-			p "you can click on me to get a callback"
+		    division [style max-width 500px height 200px background wheat] class="shadow" {
+			h1 class="text-center pt-5" "HELLO MEL"
 		    }
 		}
 	    }
-	}
-    }
-
-    include "/tk/jquery/scripts/jquery.min.js"
-    include "/tk/lib/components/w/js/ext/wc.js"
-
-    javascript {
-	put {
-	    wc.ready(function() {
-		console.log("AAAAAAAAAAAAAAAAAAAAAAAA: wc.ready");
-	    });
 	}
     }
 }
