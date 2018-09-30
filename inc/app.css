@@ -16,9 +16,6 @@
 *  along with this program.  If not, see http://www.gnu.org/licenses.
 *
 ****HEADE*****************************************************************/
-body {
-  margin-top: 70px; }
-
 body .template-header .site-search-button,
 body .template-header .site-search-input {
   border: 0;
