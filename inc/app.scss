@@ -18,26 +18,15 @@
 ****HEADE*****************************************************************/
 
 body {
-    .template-header {
-	.site-search-button,
-	.site-search-input {
-	    border: 0;
-	    margin: 0;
-	    padding: 5px 10px;
-	    height: 30px;
-	    opacity:0.6;
-	}
-	.site-search-input {
-	    margin-right:-3px!important;
-	}
-    }
+    margin:0;
+    padding:0;
 
     .template-guts {
+	margin-top:20px;
     }
 
     .template-footer {
 	margin-top:20px;
 	color: #999;
-	font-size:12px;
     }
 }
