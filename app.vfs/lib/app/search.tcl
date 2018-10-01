@@ -101,35 +101,15 @@ m::proc -public search::guts {
 	division id="search-header" {
 	    division class="container" {
 		division class="row" {
-		    division class="col-md-11" {
+		    division class="col-md-12" {
 			division [style position relative] {
 			    text search= id="searcher" placeholder="Enter tags..." class="form-control input-lg"
-
-			    division [style position absolute right 7px top 7px] {
-				put [url "<i class='fa fa-times fa-2x'></i>" "#" style=color:gray onclick="jQuery('#search').val('')\;jQuery('#search').focus()"]
-			    }
-			}
-		    }
-		    division class="col-md-1" {
-			division class="pull-left" {
-			    button "Add New" class="btn btn-lg btn-default" onclick="jQuery('.add').slideToggle()"
 			}
 		    }
 		}
 
 		division class="row" {
-		    division class="col-md-12" id="search-type" {
-			put [url "Links" "#" class="btn btn-default selected" id="search-link"]
-			space 20 0
-			put [url "Notes" "#" class="btn btn-default" id="search-notes"]
-			space 20 0
-			put [url "Emails" "#" class="btn btn-default" id="search-emails"]
-		    }
-		}
-
-		division class="row" {
-		    br
-		    division class="col-md-12 add" [style display none border "1px #CCC solid" padding-bottom 15px] {
+		    division class="col-md-12 add m-2 p-3 border border-dark" [style display none] {
 			table id="add-table" class="table" {
 			    table_head {
 				table_row {
@@ -162,7 +142,7 @@ m::proc -public search::guts {
 			    division class="clearfix" {
 				division class="pull-left" {
 				    export editing=false
-				    button "SUBMIT" class="btn btn-warning" [style width 200px] onclick="search.add()"
+				    button "SUBMIT" class="btn btn-outline-primary" [style width 200px] onclick="search.add()"
 				}
 			    }
 			}
@@ -231,6 +211,11 @@ m::proc -public search::cb {
     }
     
     set cnt 0
+
+    if {$result(*) == 0} {
+	button "Add New" class="btn btn-lg btn-outline-success" onclick="jQuery('.add').slideToggle()"
+	exit
+    }
 
     table id="search-table" class="table table-striped" {
 	table_head {
