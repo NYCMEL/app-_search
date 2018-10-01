@@ -91,27 +91,6 @@ m::proc -public home::guts {
     variable _id [id]
     
     division id="${_id}" {
-	division class="container$::fluid" {
-	    division class="row" {
-		division class="col-md-6" {
-		    division [style max-width 500px height 200px] class="shadow border border-info" {
-			h1 class="text-center pt-5" "HELLO"
-		    }
-		}
-
-		division class="col-md-6" {
-		    division [style max-width 500px height 200px] class="shadow border border-info" {
-			h1 class="text-center pt-5" "MEL"
-		    }
-		}
-	    }
-
-	    division class="row" {
-		division class="col-md-12" {
-		    br
-		    tk::dummy::2
-		}
-	    }
-	}
+	search::init
     }
 }
