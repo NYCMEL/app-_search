@@ -34,7 +34,7 @@ m::proc -public template::1::header {
     
     division class="container$::fluid" {
 	division class="row" {
-	    division class="col-md-12 mt-2 amplitude-regular" [style font-size 36px] {
+	    division class="col-md-12 mt-2 amplitude-regular" [style font-size 36px color #BCAAA4] {
 		puts "Melify <small class='amplitude-light'>- Bookmark Search</small>"
 	    }
 	}
