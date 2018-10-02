@@ -64,13 +64,13 @@ m::proc -private Site::head {
 
     tk::comment "Site::head" {
 	put {
-	    <meta name="viewport"  content="width=device-width, initial-scale=1">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link  rel="stylesheet" href="/inc/app.css">
+
+
+	    <script type="text/javascript" src="/inc/wc.bundle.js.gz"></script>
+	    <script type="text/javascript" src="/inc/app.js"></script>
 	}
-
-	include "/inc/app.css"
-
-	include "/inc/wc.bundle.js"
-	include "/inc/app.js"
     }
 }
 
