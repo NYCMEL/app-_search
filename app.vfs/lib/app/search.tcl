@@ -138,13 +138,9 @@ m::proc -public search::guts {
 				}
 			    }
 			}
-			division [style text-align center] {
-			    division class="clearfix" {
-				division class="pull-left" {
-				    export editing=false
-				    button "SUBMIT" class="btn btn-outline-primary" [style width 200px] onclick="search.add()"
-				}
-			    }
+			division class="clearfix float-left ml-2" {
+			    export editing=false
+			    button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()"
 			}
 		    }
 		}
