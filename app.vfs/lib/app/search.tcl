@@ -103,7 +103,7 @@ m::proc -public search::guts {
 		division class="row" {
 		    division class="col-md-12" {
 			division [style position relative] {
-			    text search= id="searcher" placeholder="Enter tags..." class="form-control input-lg"
+			    text search= id="searcher" placeholder="Enter tags..." class="form-control input-lg p-3"
 			}
 		    }
 		}
@@ -127,13 +127,13 @@ m::proc -public search::guts {
 			    table_body {
 				table_row {
 				    table_data {
-					text url= class="form-control" id="url"
+					text url= class="form-control p-2" id="url"
 				    }
 				    table_data {
-					text des= class="form-control" id="des"
+					text des= class="form-control p-2" id="des"
 				    }
 				    table_data {
-					text tag= class="form-control" id="tag"
+					text tag= class="form-control p-2" id="tag"
 				    }
 				}
 			    }

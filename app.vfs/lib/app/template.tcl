@@ -34,8 +34,8 @@ m::proc -public template::1::header {
     
     division class="container$::fluid" {
 	division class="row" {
-	    division class="col-md-12 mt-3 mb-3" [style font-size 24px] {
-		puts "Melify <small>-bookmark search</small>"
+	    division class="col-md-12 mt-3 mb-3 amplitude-regular" [style font-size 24px] {
+		puts "Melify <small class='amplitude-light'>- Bookmark Search</small>"
 	    }
 	}
     }
@@ -53,7 +53,7 @@ m::proc -public template::1::footer {
     division class="container$::fluid" {
 	division class="row" {
 	    division class="col-md-12" {
-		put "$::company footer"
+		put "$::company <small>- Bookmark Search</small>"
 	    }
 	}
     }
