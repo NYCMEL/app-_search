@@ -69,10 +69,7 @@ m::proc -private Site::head {
 
 	include "/inc/app.css"
 
-	include "/tk/lib/components/w/npm/node_modules/jquery/dist/jquery.min.js"
-	include "/GitHub/jquery-cookie/src/jquery.cookie.js"
 	include "/inc/wc.bundle.js"
-	include "/tk/lib/components/w/npm/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 	include "/inc/app.js"
     }
 }
