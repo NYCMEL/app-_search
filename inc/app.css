@@ -18,7 +18,8 @@
 ****HEADE*****************************************************************/
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  background: #fff; }
 
 body .template-guts {
   margin-top: 20px; }
