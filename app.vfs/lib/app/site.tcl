@@ -67,8 +67,7 @@ m::proc -private Site::head {
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link  rel="stylesheet" href="/inc/app.css">
 
-
-	    <script type="text/javascript" src="/inc/wc.bundle.js.gz"></script>
+	    <script type="text/javascript" src="/tk/bundles/wc.bundle.js.gz"></script>
 	    <script type="text/javascript" src="/inc/app.js"></script>
 	}
     }
