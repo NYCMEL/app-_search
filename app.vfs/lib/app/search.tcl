@@ -103,7 +103,7 @@ m::proc -public search::guts {
 		division class="row" {
 		    division class="col-md-12" {
 			division [style position relative] {
-			    text search= id="searcher" placeholder="Enter tags..." class="form-control input-lg p-3"
+			    text search= id="searcher" placeholder="ENTER TAGS ..." class="form-control input-lg p-3"
 
 			    division class="col-md-12 add border" [style display none background #ebebeb] {
 				table id="add-table" class="table" {
