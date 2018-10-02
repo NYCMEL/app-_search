@@ -13,36 +13,15 @@
 	}
     }
 
-    table {
+    #add-table {
 	th, tr, td {
 	    border:0!important;
 	}
     }
 
-    #search-type {
-	text-align:center;
-
+    #search-table {
 	a {
-	    &.btn {
-		border:0;
-		padding:0;
-		margin:0;
-		border-radius:0;
-
-		background:transparent;
-		color:#333;
-		font-size:14px;
-		min-width:60px;
-		border-bottom:1px transparent solid;
-		
-		&.selected {
-		    color:#2196F3;
-		}
-
-		&:hover {
-		    border-bottom:1px #CECECE solid;
-		}
-	    }
+	    color: #00796B;
 	}
     }
 }

@@ -9,25 +9,8 @@
 #search #search-header .form-control {
   font-size: 24px; }
 
-#search table th, #search table tr, #search table td {
+#search #add-table th, #search #add-table tr, #search #add-table td {
   border: 0 !important; }
 
-#search #search-type {
-  text-align: center; }
-
-#search #search-type a.btn {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  background: transparent;
-  color: #333;
-  font-size: 14px;
-  min-width: 60px;
-  border-bottom: 1px transparent solid; }
-
-#search #search-type a.btn.selected {
-  color: #2196F3; }
-
-#search #search-type a.btn:hover {
-  border-bottom: 1px #CECECE solid; }
+#search #search-table a {
+  color: #00796B; }
