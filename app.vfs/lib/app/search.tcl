@@ -104,43 +104,44 @@ m::proc -public search::guts {
 		    division class="col-md-12" {
 			division [style position relative] {
 			    text search= id="searcher" placeholder="Enter tags..." class="form-control input-lg p-3"
-			}
-		    }
-		}
 
-		division class="row" {
-		    division class="col-md-12 add m-2 p-3 border border-dark" [style display none] {
-			table id="add-table" class="table" {
-			    table_head {
-				table_row {
-				    table_th {
-					label "URL"
+			    division class="col-md-12 add border" [style display none background #ebebeb] {
+				table id="add-table" class="table" {
+				    table_head {
+					table_row {
+					    table_th {
+						label "URL"
+					    }
+					    table_th {
+						label "DESCRIPTION"
+					    }
+					    table_th {
+						label "TAGS"
+					    }
+					}
 				    }
-				    table_th {
-					label "DESCRIPTION"
+				    table_body {
+					table_row {
+					    table_data {
+						text url= class="form-control p-2" id="url"
+					    }
+					    table_data {
+						text des= class="form-control p-2" id="des"
+					    }
+					    table_data {
+						text tag= class="form-control p-2" id="tag"
+					    }
+					}
 				    }
-				    table_th {
-					label "TAGS"
+				}
+
+				division {
+				    division class="m-2 mb-4" {
+					export editing=false
+					button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()"
 				    }
 				}
 			    }
-			    table_body {
-				table_row {
-				    table_data {
-					text url= class="form-control p-2" id="url"
-				    }
-				    table_data {
-					text des= class="form-control p-2" id="des"
-				    }
-				    table_data {
-					text tag= class="form-control p-2" id="tag"
-				    }
-				}
-			    }
-			}
-			division class="clearfix float-left ml-2" {
-			    export editing=false
-			    button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()"
 			}
 		    }
 		}
