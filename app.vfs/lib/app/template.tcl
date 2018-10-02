@@ -34,8 +34,8 @@ m::proc -public template::1::header {
     
     division class="container$::fluid" {
 	division class="row" {
-	    division class="col-md-12" {
-		puts [subst [file:read "$::starkit::topdir/data/navbar.html"]]
+	    division class="col-md-12 mt-3 mb-3" [style font-size 24px] {
+		puts "Melify <small>-bookmark search</small>"
 	    }
 	}
     }
@@ -87,7 +87,7 @@ m::proc -public template::1 {
     tk::comment "template::1" {
 	division id="wc" {
 	    division class="template" id="template" {
-		division class="template-header bg-light border-bottom" id="template-header" {
+		division class="template-header" id="template-header" {
 		    template::1::header
 		}
 
