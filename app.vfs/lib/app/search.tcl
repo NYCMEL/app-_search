@@ -138,7 +138,9 @@ m::proc -public search::guts {
 				division {
 				    division class="m-2 mb-4" {
 					export editing=false
-					button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()"
+					button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
+					space 10 0
+					put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add, #add-new').slideToggle()" style="width:120px"]
 				    }
 				}
 			    }
@@ -210,7 +212,7 @@ m::proc -public search::cb {
     set cnt 0
 
     if {$result(*) == 0} {
-	button "Add New" class="btn btn-lg btn-outline-success" onclick="jQuery('.add').slideToggle()"
+	button "New Bookmark" class="btn btn-lg btn-outline-success" onclick="jQuery('.add, #add-new').slideToggle()" id="add-new"
 	exit
     }
 
