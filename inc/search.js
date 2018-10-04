@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-01 19:52:13 (melify)>
+//// Time-stamp: <2018-10-04 16:10:18 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -19,15 +19,21 @@ search.init = function(options) {
 
 	obj.addClass("selected");
     });
+    
+    $("#do-search").on("click", function() {
+	let val = $("#searcher").val().trim();
+	$(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val));
+    });
 
-    $(document).keyup(function (e) {
-	if ($("#searcher").is(":focus") && (e.keyCode == 13)) {
-	    let val = $("#searcher").val().trim();
+    $("#searcher").keyup(function (e) {
+	let val = $("#searcher").val().trim();
 
-	    if (val != "") {
-		$(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val), function() {
-		    $(".add").hide();
-		})
+	// CLEAR RESULTS 
+	if (val == "") {
+	    $(".result").empty();
+	} else {
+	    if ($("#searcher").is(":focus") && (e.keyCode == 13)) {
+		$(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val));
 	    }
 	}
     });
@@ -93,3 +99,6 @@ search.edit = function(id,url,des,tag) {
     console.groupEnd();
 };
 
+jQuery(document).ready(function() {
+    search.init();
+});

@@ -20,8 +20,30 @@
     }
 
     #search-table {
-	a {
-	    color: #00796B;
+	.col-0, .col-1, .col-2 {
+	    width: 30px!important;
+	}
+
+	.col-0 {
+	    text-align: right;
+	}
+
+	.col-1 {
+	    text-align: center;
+	}
+
+	.col-3 {
+	    width: 500px!important;
+	}
+
+	.col-4 {
+	    width: 500px!important;
+	}
+
+	td {
+	    a {
+		color: #00796B;
+	    }
 	}
     }
 }

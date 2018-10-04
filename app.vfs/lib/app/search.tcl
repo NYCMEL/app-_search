@@ -22,10 +22,6 @@ namespace eval search {}
 include "/inc/search.css"
 include "/inc/search.js"
 
-if {[info exist searchtype] == 0} {
-    set searchtype "links"
-}
-
 ######################################################
 ##### 
 ######################################################
@@ -103,7 +99,20 @@ m::proc -public search::guts {
 		division class="row" {
 		    division class="col-md-12" {
 			division [style position relative] {
-			    text search= id="searcher" placeholder="ENTER TAGS ..." class="form-control input-lg p-3"
+			    table width=100% {
+				table_row {
+				    table_data width=100% {
+					text search= id="searcher" placeholder="ENTER TAGS ..." class="form-control input-lg p-3"
+				    }
+				    table_data [style max-width 150px] {
+					button "<i class='fa fa-search'></i>" class="btn btn-lg btn-outline-success" [style padding 18px width 80px] id="do-search"
+				    }
+
+				    table_data [style max-width 150px] {
+					button "New Bookmark" class="btn btn-lg btn-outline-primary" onclick="jQuery('.add').slideToggle()" id="add-new" [style padding 18px min-width 150px]
+				    }
+				}
+			    }
 
 			    division class="col-md-12 add border" [style display none background #ebebeb] {
 				table id="add-table" class="table" {
@@ -140,7 +149,7 @@ m::proc -public search::guts {
 					export editing=false
 					button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
 					space 10 0
-					put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add, #add-new').slideToggle()" style="width:120px"]
+					put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add').slideToggle()" style="width:120px"]
 				    }
 				}
 			    }
@@ -154,12 +163,6 @@ m::proc -public search::guts {
 	    division class="row" {
 		division class="col-md-12 result" {
 		}
-	    }
-	}
-	
-	javascript {
-	    put {
-		search.init();
 	    }
 	}
     }
@@ -211,28 +214,23 @@ m::proc -public search::cb {
     
     set cnt 0
 
-    if {$result(*) == 0} {
-	button "New Bookmark" class="btn btn-lg btn-outline-success" onclick="jQuery('.add, #add-new').slideToggle()" id="add-new"
-	exit
-    }
-
-    table id="search-table" class="table table-striped" {
+    table id="search-table" class="table table-striped table-bordered" {
 	table_head {
 	    table_row {
-		table_th {
+		table_th class="col-0" {
 		    put "#"
 		}
- 		table_th {
+ 		table_th class="col-1" {
 		    put ""
 		}
- 		table_th {
+ 		table_th class="col-2" {
 		    put ""
 		}
-		table_th {
+		table_th class="col-3" {
 		    put "DESCRIPTION"
 		}
-		table_th {
-		    put "URL"
+		table_th class="col-4" {
+		    put "TAGS"
 		}
 	    }
 	}
@@ -240,24 +238,36 @@ m::proc -public search::cb {
 	table_body {
 	    for {set r 0} {$r < [lindex $result(*) 0]} {incr r} {
 		table_row id="row-$result($r,id)" {
-		    table_data {
+		    table_data class="col-0" {
 			put [incr cnt]
 		    }
-		    table_data {
-			put [url "<i class='fa fa-trash'></i>" "#" onclick="search.delete('$result($r,id)')"]
+		    table_data class="col-1" {
+			put [url "<i class='fa fa-trash'></i>" "#" bid="$result($r,id)"]
 		    }
-		    table_data {
-			put [url "<i class='fa fa-edit'></i>" "#" onclick="search.edit('$result($r,id)','$result($r,url)','$result($r,description)','$result($r,tag)')"]
+		    table_data class="col-2" {
+			put [url "<i class='fa fa-edit'></i>" "#" pid="$result($r,id)", url="$result($r,url)" desc="$result($r,description)" tag="$result($r,tag)"]
 		    }
-		    table_data {
-			put $result($r,description);
+		    table_data class="col-3" {
+			put [url $result($r,description) $result($r,url) target=_blank]
 		    }
-		    table_data [style max-width 400px] {
-			division {
-			    put [url $result($r,url) $result($r,url) target=_blank]
-			}
+		    table_data class="col-4" {
+			put $result($r,tag)
 		    }
 		}
+	    }
+	}
+
+	javascript {
+	    put {
+		jQuery(document).ready(function() {
+		    $(".col-1 a").on("click", function() {
+			search.delete($(this).attr("bid"))
+		    });
+
+		    $(".col-2 a").on("click", function() {
+			search.edit($(this).attr("pid"),$(this).attr("url"),$(this).attr("desc"),$(this).attr("tag"))
+		    });
+		});
 	    }
 	}
     }

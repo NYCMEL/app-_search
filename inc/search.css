@@ -12,5 +12,20 @@
 #search #add-table th, #search #add-table tr, #search #add-table td {
   border: 0 !important; }
 
-#search #search-table a {
+#search #search-table .col-0, #search #search-table .col-1, #search #search-table .col-2 {
+  width: 30px !important; }
+
+#search #search-table .col-0 {
+  text-align: right; }
+
+#search #search-table .col-1 {
+  text-align: center; }
+
+#search #search-table .col-3 {
+  width: 500px !important; }
+
+#search #search-table .col-4 {
+  width: 500px !important; }
+
+#search #search-table td a {
   color: #00796B; }
