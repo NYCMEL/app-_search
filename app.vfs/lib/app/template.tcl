@@ -32,7 +32,9 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    division [style position fixed top 0 left 0 width 25px height 25px] class="bg-light border" onclick="document.location.href='/mtk/render?page=sqlite::db::viewer'" {
+    set url "/mtk/render?page=sqlite::db::viewer&db=/Melify/mtk/dev/app/_search/db/sqlite.db"
+
+    division [style position fixed top 0 left 0 width 25px height 25px] class="bg-light border" onclick="document.location.href='$url'" {
     }
 
     division class="container$::fluid" {
