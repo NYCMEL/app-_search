@@ -69,6 +69,7 @@ m::proc -private Site::head {
 
 	    <script type="text/javascript" src="/tk/bundles/wc.bundle.js.gz"></script>
 	    <script type="text/javascript" src="/inc/app.js"></script>
+	    <script type="text/javascript" src="/tk/inc/common.js"></script>
 	}
 
 	javascript {
