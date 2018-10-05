@@ -70,6 +70,14 @@ m::proc -private Site::head {
 	    <script type="text/javascript" src="/tk/bundles/wc.bundle.js.gz"></script>
 	    <script type="text/javascript" src="/inc/app.js"></script>
 	}
+
+	javascript {
+	    put [subst {
+		jQuery(document).ready(function() {
+		    app.init({app:"$::APP", env:"$::ENV", local:"$::tk(local)", clock:"$::tk(clock)"});
+		});
+	    }]
+	}
     }
 }
 
