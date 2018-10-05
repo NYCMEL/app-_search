@@ -35,7 +35,8 @@ m::proc -public template::1::header {
     division class="container$::fluid" {
 	division class="row" {
 	    division class="col-md-12 mt-2 amplitude-regular" [style font-size 36px color #BCAAA4] {
-		puts "Melify <small class='amplitude-light'>- Bookmark Search</small>"
+		set size [tk::db::sqlite::query "select count(*) from search"]
+		puts "Melify <small class='amplitude-light'>- Bookmark Search <span style=font-size:12px;>$size</span></small>"
 	    }
 	}
     }
@@ -84,6 +85,8 @@ m::proc -public template::1 {
 } {
     Trace
     
+  
+
     tk::comment "template::1" {
 	division id="wc" {
 	    division class="template" id="template" {
