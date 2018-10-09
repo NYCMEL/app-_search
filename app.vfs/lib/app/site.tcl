@@ -50,7 +50,7 @@ m::proc -private Site::cookies {
 
     #NO COOKIES FOR TEMPLATE
 
-    return "userid"
+    return "userid ip date"
 }
 
 ##################################################
@@ -70,6 +70,7 @@ m::proc -private Site::head {
 	    <script type="text/javascript" src="/tk/bundles/wc.bundle.js.gz"></script>
 	    <script type="text/javascript" src="/inc/app.js"></script>
 	    <script type="text/javascript" src="/tk/inc/common.js"></script>
+	    <script type="text/javascript" src="/tk/inc/jquery.cookie.js"></script>
 	}
 
 	javascript {
