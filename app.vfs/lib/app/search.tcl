@@ -109,48 +109,52 @@ m::proc -public search::guts {
 				    }
 
 				    table_data [style max-width 150px] {
-					button "New Bookmark" class="btn btn-lg btn-outline-primary" onclick="jQuery('.add').slideToggle()" id="add-new" [style padding 18px min-width 150px]
+					button "New Bookmark" class="btn btn-lg btn-outline-primary" onclick="jQuery('.add').slideToggle()" id="add-new" [style padding 18px]
+				    }
+				}
+			    }
+			}
+		    }
+		}
+
+		division class="row" {
+		    division class="col-md-12 add mt-2" [style display none] {
+			division class="alert alert-info" {
+			    table id="add-table" class="table" {
+				table_head {
+				    table_row {
+					table_th {
+					    label "URL"
+					}
+					table_th {
+					    label "DESCRIPTION"
+					}
+					table_th {
+					    label "TAGS"
+					}
+				    }
+				}
+				table_body {
+				    table_row {
+					table_data {
+					    text url= class="form-control p-2" id="url"
+					}
+					table_data {
+					    text des= class="form-control p-2" id="des"
+					}
+					table_data {
+					    text tag= class="form-control p-2" id="tag"
+					}
 				    }
 				}
 			    }
 
-			    division class="col-md-12 add border" [style display none background #ebebeb] {
-				table id="add-table" class="table" {
-				    table_head {
-					table_row {
-					    table_th {
-						label "URL"
-					    }
-					    table_th {
-						label "DESCRIPTION"
-					    }
-					    table_th {
-						label "TAGS"
-					    }
-					}
-				    }
-				    table_body {
-					table_row {
-					    table_data {
-						text url= class="form-control p-2" id="url"
-					    }
-					    table_data {
-						text des= class="form-control p-2" id="des"
-					    }
-					    table_data {
-						text tag= class="form-control p-2" id="tag"
-					    }
-					}
-				    }
-				}
-
-				division {
-				    division class="m-2 mb-4" {
-					export editing=false
-					button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
-					space 10 0
-					put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add').slideToggle()" style="width:120px"]
-				    }
+			    division {
+				division class="m-2 mb-4" {
+				    export editing=false
+				    button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
+				    space 10 0
+				    put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add').slideToggle()" style="width:120px"]
 				}
 			    }
 			}
