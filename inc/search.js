@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-09 18:43:15 (melify)>
+//// Time-stamp: <2018-10-09 18:52:39 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -12,11 +12,13 @@ search.init = function(options) {
     $("#searcher").focus();
 
     $("#show-ip").on("click", function() {
-	alert("A")
+	$.cookie("ip", $(this).is(":checked"));
+	console.log(">>>>>>>", $.cookie("ip"));
     });
-
+    
     $("#show-date").on("click", function() {
-	alert("B")
+	$.cookie("date", $(this).is(":checked"));
+	console.log(">>>>>>>", $.cookie("date"));
     });
 
     $("#my").on("click", function() {
