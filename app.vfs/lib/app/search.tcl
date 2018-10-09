@@ -281,7 +281,7 @@ m::proc -public search::add {
 	set cnt [tk::db::sqlite::query "SELECT count(*) FROM search where url='$::url'"]
 	
 	if {$cnt == 0} {
-	    set res [tk::db::sqlite::query "INSERT INTO search (url,description,tag,ip) VALUES ('$::url','$::des','$::tag','[string trim $::env(REMOTE_ADDR)')]"]
+	    set res [tk::db::sqlite::query "INSERT INTO search (url,description,tag,ip,ts) VALUES ('$::url', '$::des', '$::tag', '$::env(REMOTE_ADDR)', '[clock seconds]')"]
 	} else {
 	    javascript {
 		put [subst {
@@ -290,7 +290,7 @@ m::proc -public search::add {
 	    }
 	}
     } else {
-	set res [tk::db::sqlite::query "UPDATE search SET url='$::url', description='$::des', tag='$::tag' WHERE id=$::edi"]
+	set res [tk::db::sqlite::query "UPDATE search SET url='$::url', description='$::des', tag='$::tag', ts='[clock seconds]' WHERE id=$::edi"]
     }
 }
 
