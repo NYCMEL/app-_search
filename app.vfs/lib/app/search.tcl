@@ -130,7 +130,7 @@ m::proc -public search::guts {
 					    label for="my" [style margin-top 2px] "My Bookmarks" 
 					}
 
-					division class="pull-left ml-3" {
+					division class="pull-left ml-5" {
 					    if {$::ip == "true"} {
 						set state "checked"
 					    } else {
