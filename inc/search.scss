@@ -1,8 +1,22 @@
 #search {
+    .truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+
+	/* background: -webkit-linear-gradient(left, #000 , #f7f7f7); */
+	/* background: -o-linear-gradient(right, #000, #f7f7f7); */
+	/* background: -moz-linear-gradient(right, #000, #f7f7f7); */
+	/* background: linear-gradient(to right, #000 , #f7f7f7);  */
+	/* -webkit-background-clip: text; */
+	/* -webkit-text-fill-color: transparent; */
+    }
+
     #search-header {
-	background: #f7f7f7;
-	padding:20px;
-	margin-bottom: 20px;
+	background: #FFF;
+	padding-bottom: 20px;
 
 	#searcher {
 	    font-size:24px;

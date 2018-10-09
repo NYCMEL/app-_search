@@ -22,6 +22,10 @@ namespace eval search {}
 include "/inc/search.css"
 include "/inc/search.js"
 
+if {[info exist my] == 0} {
+    set my 0
+}
+
 ######################################################
 ##### 
 ######################################################
@@ -93,34 +97,49 @@ m::proc -public search::guts {
     Trace
     variable _id [id]
     
-    division id="${_id}" class="clearfix" {
+    if (0) {
+	source /Melify/mtk/dev/app/_search/db/.components-dev
+	source /Melify/mtk/dev/app/_search/db/.components-prod
+    }
+
+    division id="${_id}" {
 	division id="search-header" {
 	    division class="container" {
 		division class="row" {
 		    division class="col-md-12" {
-			division [style position relative] {
-			    table width=100% {
-				table_row {
-				    table_data width=100% {
-					text search= id="searcher" placeholder="ENTER TAGS ..." class="form-control input-lg p-3"
-				    }
-				    table_data [style max-width 150px] {
-					button "<i class='fa fa-search'></i>" class="btn btn-lg btn-outline-success" [style padding 18px width 80px] id="do-search"
-				    }
+			table width=100% [style height 80px] {
+			    table_row {
+				table_data width=100% {
+				    text search= id="searcher" placeholder="I am looking for ..." class="form-control input-lg p-3" [style height 70px] 
+				}
+				table_data [style max-width 150px] {
+				    button "<i class='fa fa-search'></i>" class="btn btn-lg btn-outline-secondary" [style padding 18px width 80px height 70px] id="do-search"
+				}
 
-				    table_data [style max-width 150px] {
-					button "New Bookmark" class="btn btn-lg btn-outline-primary" onclick="jQuery('.add').slideToggle()" id="add-new" [style padding 18px]
+				table_data {
+				    button "<i class='fa fa-plus-circle fa-lg'></i> NEW Bookmark" id="add-new-bookmark" class="btn btn-lg btn-secondary" [style padding 18px width 100% height 70px]
+				}
+			    }
+			    table_row {
+				table_data colspan=3 {
+				    division class="clearfix" {
+					division class="pull-left mr-2" {
+					    checkbox cb= id="my"
+					}
+					division class="pull-left" {
+					    label for="my" "My Bookmarks"
+					}
 				    }
 				}
 			    }
 			}
 		    }
 		}
-
+		
 		division class="row" {
-		    division class="col-md-12 add mt-2" [style display none] {
+		    division class="col-md-12 add pt-4" [style display none] {
 			division class="alert alert-info" {
-			    table id="add-table" class="table" {
+			    table id="add-table" width="100%" {
 				table_head {
 				    table_row {
 					table_th {
@@ -137,20 +156,23 @@ m::proc -public search::guts {
 				table_body {
 				    table_row {
 					table_data {
-					    text url= class="form-control p-2" id="url"
+					    text url= class="form-control" id="url" [style font-size 16px height 50px]
+					    put "<small>Enter bookmark URL</small>"
 					}
 					table_data {
-					    text des= class="form-control p-2" id="des"
+					    text des= class="form-control" id="des" [style font-size 16px height 50px]
+					    put "<small>Bookmark description</small>"
 					}
 					table_data {
-					    text tag= class="form-control p-2" id="tag"
+					    text tag= class="form-control truncate" id="tag" [style background #FFF height 50px font-size 16px]
+					    put "<small>Bookmarks are found from these tags</small>"
 					}
 				    }
 				}
 			    }
 
 			    division {
-				division class="m-2 mb-4" {
+				division class="mt-4 mb-2" {
 				    export editing=false
 				    button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
 				    space 10 0
@@ -166,13 +188,47 @@ m::proc -public search::guts {
 	division class="container" {
 	    division class="row" {
 		division class="col-md-12 result" {
+		    search::help
 		}
 	    }
 	}
 
 	javascript {
 	    put {
-		search.init();
+		jQuery(document).ready(function() {
+		    search.init();
+		});
+	    }
+	}
+    }
+}
+
+######################################################
+##### 
+######################################################
+m::proc -public search::help {
+} {
+    Documentation goes here...
+} {    
+    Trace
+    variable _id [id]
+    
+    division class="alert alert-warning" {
+	put "<span class='amplitude-regular'>ENTER THINGS LIKE:</span>"
+	
+	division class="container" {
+	    division class="row" {
+		division class="col-md-6" {
+		    bullet_list class="mt-2" {
+			li "assump mat prod"
+			li "countdown"
+			li "goog Fin"
+			li "UAT"
+		    }
+		}
+		division class="col-md-6" {
+		    h4 [style margin 0 padding 0 text-align right line-height 35px] "ALL your <b>Bootmarks</b> in one place. <BR> So everyone can find, play and enjoy"
+		}
 	    }
 	}
     }
@@ -188,18 +244,30 @@ m::proc -public search::add {
     Trace
     variable _id [id]
     
-    h1 >>>$::edi
-    h1 >>>$::url
-    h1 >>>$::des
-    h1 >>>$::tag
+    foreach i {url des tag} {
+	regsub -all "'" [set ::$i] "''" ::$i
+    }
+
+    # IF TAGS ARE EMPTY USE DESCRIPTION
+    if {[string trim $::tag] == ""} {
+	set ::tag $::des
+    }
 
     if {$::edi == "false"} {
-	set res [tk::db::sqlite::query "insert into search (url,description,tag) values ('$::url','$::des','$::tag')"]
+	set cnt [tk::db::sqlite::query "SELECT count(*) FROM search where url='$::url'"]
+	
+	if {$cnt == 0} {
+	    set res [tk::db::sqlite::query "INSERT INTO search (url,description,tag,ip) VALUES ('$::url','$::des','$::tag','[string trim $::env(REMOTE_ADDR)')]"]
+	} else {
+	    javascript {
+		put [subst {
+		    alert("A URL EXIST FOR THIS BOOKMARK $cnt");
+		}]
+	    }
+	}
     } else {
 	set res [tk::db::sqlite::query "UPDATE search SET url='$::url', description='$::des', tag='$::tag' WHERE id=$::edi"]
     }
-
-    h1 >>>>>>>>$res<<<
 }
 
 ######################################################
@@ -212,60 +280,115 @@ m::proc -public search::cb {
     Trace
     variable _id [id]
     
-    if {$::tags == "*"} {
-	tk::db::sqlite::query:v -variable result "select * from search"
-    } else {
-	set term ""
+    switch $::my {
+	"0" {
+	    if {$::tags == ""} {
+		javascript {
+		    put {
+			$(".result").load("/mtk/render?ajax=1&callback=search::help");
+		    }
+		}
+		return
+	    } elseif {$::tags == "*"} {
+		tk::db::sqlite::query:v -variable result "select * from search"
+	    } else {
+		set term ""
 
-	foreach i $::tags {
-	    append term "(tag like '%$i%' OR description like '%$i%' OR url like '%$i%') AND "
+		foreach i $::tags {
+		    append term "(tag like '%$i%' OR description like '%$i%') AND "
+		    #append term "tag like '%$i%' AND "
+		}
+		
+		set term [string range $term 0 end-4]
+
+		division [style background #E1F5FE] class="p-2" {
+		    division class="clearfix" {
+			division class="pull-right" {
+			    put [url "<i class='fa fa-eye'></i>" "#" onclick="jQuery('#show-query').slideToggle()" class="btn btn-sm btn-outline-primary"]
+			}
+		    }
+
+		    division [style display none] id="show-query" class="p-2" {
+			hr
+			put "select * from search where ($term)"
+		    }
+		}
+		
+		tk::db::sqlite::query:v -variable result "select * from search where ($term)"
+	    }
 	}
-	
-	set term [string range $term 0 end-4]
-	
-	tk::db::sqlite::query:v -variable result "select * from search where ($term)"
+	"1" {
+	    tk::db::sqlite::query:v -variable result "select * from search where ip='[string trim $::env(REMOTE_ADDR)]'"
+	}
     }
     
     set cnt 0
 
-    table id="search-table" class="table table-striped table-bordered" {
+    if {[lindex $result(*) 0] == 0} {
+	division class="alert alert-danger" {
+	    h3 class="pt-2" align="center" "No Boomarks found !"
+	}
+	exit
+    }
+
+    if {$::my == 0} {
+	set style ""
+    } else {
+	set style [style border "2px red dashed"]
+    }
+
+    table id="search-table" class="table table-striped table-bordered" $style {
 	table_head {
 	    table_row {
-		table_th class="col-0" {
+		table_th class="td-col-0" [style width 50px text-align right] {
 		    put "#"
 		}
- 		table_th class="col-1" {
+ 		table_th class="td-col-1" [style width 50px text-align center] {
 		    put ""
 		}
- 		table_th class="col-2" {
+ 		table_th class="td-col-2" [style width 50px text-align center] {
 		    put ""
 		}
-		table_th class="col-3" {
+		table_th class="td-col-3" {
 		    put "DESCRIPTION"
 		}
-		table_th class="col-4" {
+		table_th class="td-col-4" {
 		    put "TAGS"
+		}
+		table_th class="td-col-5" {
+		    put "IP"
 		}
 	    }
 	}
 
 	table_body {
 	    for {set r 0} {$r < [lindex $result(*) 0]} {incr r} {
-		table_row id="row-$result($r,id)" {
-		    table_data class="col-0" {
+		table_row id="row-$result($r,id)" [style width 50px text-align right] {
+		    table_data class="td-col-0" {
 			put [incr cnt]
 		    }
-		    table_data class="col-1" {
-			put [url "<i class='fa fa-trash'></i>" "#" bid="$result($r,id)"]
+		    table_data class="td-col-1" [style width 50px text-align center] {
+			if {[string trim $::env(REMOTE_ADDR)] == [string trim $result($r,ip)]} {
+			    put [url "<i class='fa fa-trash'></i>" "#" bid="$result($r,id)"]
+			} else {
+			    put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-trash'></i></span>"
+			}
 		    }
-		    table_data class="col-2" {
-			put [url "<i class='fa fa-edit'></i>" "#" pid="$result($r,id)", url="$result($r,url)" desc="$result($r,description)" tag="$result($r,tag)"]
+		    table_data class="td-col-2" [style width 50px text-align center] {
+			if {$::env(REMOTE_ADDR) == $result($r,ip)} {
+			    put [url "<i class='fa fa-edit'></i>" "#" pid="$result($r,id)", url="$result($r,url)" desc="$result($r,description)" tag="$result($r,tag)"]
+			} else {
+			    put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-edit'></i></span>"
+			}
 		    }
-		    table_data class="col-3" {
+		    table_data class="td-col-3" [style text-align left] {
 			put [url $result($r,description) $result($r,url) target=_blank]
 		    }
-		    table_data class="col-4" {
+		    table_data class="td-col-4 truncate" title="$result($r,tag)" [style text-align left] {
 			put $result($r,tag)
+		    }
+		    table_data class="td-col-5" title="$result($r,tag)" [style width 130px text-align left] {
+			put $result($r,ip)
 		    }
 		}
 	    }
@@ -274,11 +397,11 @@ m::proc -public search::cb {
 	javascript {
 	    put {
 		jQuery(document).ready(function() {
-		    $(".col-1 a").on("click", function() {
+		    $(".td-col-1 a").on("click", function() {
 			search.delete($(this).attr("bid"))
 		    });
 
-		    $(".col-2 a").on("click", function() {
+		    $(".td-col-2 a").on("click", function() {
 			search.edit($(this).attr("pid"),$(this).attr("url"),$(this).attr("desc"),$(this).attr("tag"))
 		    });
 		});
@@ -297,7 +420,5 @@ m::proc -public search::del {
     Trace
     variable _id [id]
     
-    h1 >>>>>>>>>$::id
-
     tk::db::sqlite::query "delete from search where id=$::id"
 }

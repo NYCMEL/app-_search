@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-08 20:18:07 (melify)>
+//// Time-stamp: <2018-10-09 16:15:41 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -10,6 +10,16 @@ search.init = function(options) {
     console.group("search.init");
 
     $("#searcher").focus();
+
+    $("#my").on("click", function() {
+	if ($("#my").is(":checked")) {
+	    $('#searcher, #do-search').val("").prop("disabled","disabled");
+	    $(".result").load("/mtk/render?ajax=1&callback=search::cb&my=1");
+	} else {
+	    $('#searcher, #do-search').prop("disabled","");
+	    $(".result").load("/mtk/render?ajax=1&callback=search::help");
+	}
+    });
 
     $("#searcher-type a").on("click", function() {
 	let obj = $(this);
@@ -30,12 +40,17 @@ search.init = function(options) {
 
 	// CLEAR RESULTS 
 	if (val == "") {
-	    $(".result").empty();
+	    $(".result").load("/mtk/render?ajax=1&callback=search::help");
 	} else {
 	    if ($("#searcher").is(":focus") && (e.keyCode == 13)) {
 		$(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val));
 	    }
 	}
+    });
+
+    $("#add-new-bookmark").unbind().on("click", function() {
+	$("#url, #des, #tag").val("");
+	$('.add').slideToggle();
     });
 
     console.groupEnd();
@@ -98,3 +113,4 @@ search.edit = function(id,url,des,tag) {
 
     console.groupEnd();
 };
+

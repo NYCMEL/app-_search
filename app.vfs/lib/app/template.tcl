@@ -32,16 +32,19 @@ m::proc -public template::1::header {
 } {
     Trace
     
-    set url "/mtk/render?page=sqlite::db::viewer&db=/Melify/mtk/dev/app/_search/db/sqlite.db"
+    set size [tk::db::sqlite::query "select count(*) from search"]
 
+    set url "/mtk/render?page=sqlite::db::viewer&db=/Melify/mtk/dev/app/_search/db/sqlite.db"
     division [style position fixed top 0 left 0 width 25px height 25px] class="bg-light" onclick="document.location.href='$url'" {
     }
-
-    division class="container$::fluid" {
+    
+    division class="container$::fluid pt-3" {
 	division class="row" {
-	    division class="col-md-12 mt-2 amplitude-regular" [style font-size 36px color #BCAAA4] {
-		set size [tk::db::sqlite::query "select count(*) from search"]
-		puts "Melify <small class='amplitude-light'>- Bookmark Search <span style=font-size:12px;>$size</span></small>"
+	    division class="col-md-6 mt-2 amplitude-regular" [style font-size 36px color #BCAAA4] {
+		puts $::company
+	    }
+	    division class="col-md-6 mt-2" [style font-size 36px color #BCAAA4] {
+		put [url "<i class='fa fa-bug'></i> GOT BUGS ?" "mailto:mel.m.heravi@jpmchase.com?subject=FIX+THIS+BUG" class="btn btn-info btn-lg float-right"]
 	    }
 	}
     }
@@ -58,8 +61,13 @@ m::proc -public template::1::footer {
     
     division class="container$::fluid" {
 	division class="row" {
-	    division class="col-md-12" {
-		put "$::company <small>- Bookmark Search</small>"
+	    division class="col-md-6" {
+		put "$::company 2018 &copy; Mel"
+	    }
+	    division class="col-md-6" {
+		division class="pull-right" {
+		    put "<i class='fa fa-envelope'></i> <a href='mailto:mel.m.heravi@jpmchase.com'>Mel M. Heravi +1 646.303.1234</a>"
+		}
 	    }
 	}
     }
@@ -90,8 +98,6 @@ m::proc -public template::1 {
 } {
     Trace
     
-  
-
     tk::comment "template::1" {
 	division id="wc" {
 	    division class="template" id="template" {
