@@ -41,7 +41,7 @@ m::proc -public template::1::header {
     division class="container$::fluid pt-3" {
 	division class="row" {
 	    division class="col-md-6 mt-2 amplitude-regular" [style font-size 36px color #BCAAA4] {
-		puts $::company
+		puts "Melify <small class=amplitude-light>- Bookmark Vault</small>"
 	    }
 	    division class="col-md-6 mt-2" [style font-size 36px color #BCAAA4] {
 		put [url "<i class='fa fa-bug'></i> GOT BUGS ?" "mailto:mel.m.heravi@jpmchase.com?subject=FIX+THIS+BUG" class="btn btn-info btn-lg float-right"]
