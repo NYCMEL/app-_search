@@ -131,7 +131,7 @@ m::proc -public search::guts {
 					}
 
 					division class="pull-left ml-5" {
-					    if {$::tag == "true"} {
+					    if {$::qtag == "true"} {
 						set state "checked"
 					    } else {
 						set state ""
@@ -143,7 +143,7 @@ m::proc -public search::guts {
 					}
 
 					division class="pull-left ml-5" {
-					    if {$::ip == "true"} {
+					    if {$::qip == "true"} {
 						set state "checked"
 					    } else {
 						set state ""
@@ -155,7 +155,7 @@ m::proc -public search::guts {
 					}
 
 					division class="pull-left ml-3" {
-					    if {$::ts == "true"} {
+					    if {$::qts == "true"} {
 						set state "checked"
 					    } else {
 						set state ""
@@ -389,19 +389,19 @@ m::proc -public search::cb {
 		    put "DESCRIPTION"
 		}
 
-		if {$::tag == "true"} {
+		if {$::qtag == "true"} {
 		    table_th class="td-col-4" {
 			put "TAGS"
 		    }
 		}
 
-		if {$::ip == "true"} {
+		if {$::qip == "true"} {
 		    table_th class="td-col-5" [style text-align center] {
 			put "IP"
 		    }
 		 }
 
-		if {$::ts == "true"} {
+		if {$::qts == "true"} {
 		    table_th class="td-col-6" [style text-align center] {
 			put "DATE"
 		    }
@@ -433,19 +433,19 @@ m::proc -public search::cb {
 			put [url $result($r,description) $result($r,url) target=_blank]
 		    }
 
-		    if {$::tag == "true"} {
+		    if {$::qtag == "true"} {
 			table_data class="td-col-4 truncate" title="$result($r,tag)" [style text-align left] {
 			    put $result($r,tag)
 			}
 		    }
 
-		    if {$::ip == "true"} {
+		    if {$::qip == "true"} {
 			table_data class="td-col-5" [style text-align center] {
 			    put $result($r,ip)
 			}
 		    }
 
-		    if {$::ts == "true"} {
+		    if {$::qts == "true"} {
 			table_data class="td-col-6" [style text-align center] {
 			    put [clock format $result($r,ts)]
 			}

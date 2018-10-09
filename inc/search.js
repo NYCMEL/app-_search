@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-09 19:46:02 (melify)>
+//// Time-stamp: <2018-10-09 19:54:54 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -12,17 +12,17 @@ search.init = function(options) {
     $("#searcher").focus();
 
     $("#show-ip").on("click", function() {
-	$.cookie("ip", $(this).is(":checked"));
+	$.cookie("qip", $(this).is(":checked"));
 	search.doit()
     });
     
     $("#show-tag").on("click", function() {
-	$.cookie("tag", $(this).is(":checked"));
+	$.cookie("qtag", $(this).is(":checked"));
 	search.doit()
     });
     
     $("#show-date").on("click", function() {
-	$.cookie("ts", $(this).is(":checked"));
+	$.cookie("qts", $(this).is(":checked"));
 	search.doit()
     });
 
