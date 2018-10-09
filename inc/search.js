@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-09 18:53:15 (melify)>
+//// Time-stamp: <2018-10-09 19:05:13 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -17,8 +17,8 @@ search.init = function(options) {
     });
     
     $("#show-date").on("click", function() {
-	$.cookie("date", $(this).is(":checked"));
-	console.log(">>>>>>>", $.cookie("date"));
+	$.cookie("ts", $(this).is(":checked"));
+	console.log(">>>>>>>", $.cookie("ts"));
     });
 
     $("#my").on("click", function() {

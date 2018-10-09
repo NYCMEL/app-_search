@@ -124,21 +124,31 @@ m::proc -public search::guts {
 				table_data colspan=3 {
 				    division class="clearfix" {
 					division class="pull-left m-1" {
-					    checkbox cb= id="my"
+					    checkbox cb= id="my" 
 					}
 					division class="pull-left m-1" {
 					    label for="my" [style margin-top 2px] "My Bookmarks" 
 					}
 
 					division class="pull-left ml-3" {
-					    checkbox cb= id="show-ip" class="m-2"
+					    if {$::ip == "true"} {
+						set state "checked"
+					    } else {
+						set state ""
+					    }
+					    checkbox cb= id="show-ip" class="m-2" $state
 					}
 					division class="pull-left mt-1" {
 					    label for="show-ip" [style margin-top 2px] "Show User IP"
 					}
 
 					division class="pull-left ml-3" {
-					    checkbox cb= id="show-date" class="m-2"
+					    if {$::ts == "true"} {
+						set state "checked"
+					    } else {
+						set state ""
+					    }
+					    checkbox cb= id="show-date" class="m-2" $state
 					}
 					division class="pull-left mt-1" {
 					    label for="show-date" [style margin-top 2px] "Updated Date"
@@ -369,9 +379,18 @@ m::proc -public search::cb {
 		table_th class="td-col-4" {
 		    put "TAGS"
 		}
-		# table_th class="td-col-5" {
-		#     put "IP"
-		# }
+
+		if {$::ip == "true"} {
+		    table_th class="td-col-5" [style text-align center] {
+			put "IP"
+		    }
+		 }
+
+		if {$::ts == "true"} {
+		    table_th class="td-col-6" [style text-align center] {
+			put "DATE"
+		    }
+		 }
 	    }
 	}
 
@@ -401,9 +420,18 @@ m::proc -public search::cb {
 		    table_data class="td-col-4 truncate" title="$result($r,tag)" [style text-align left] {
 			put $result($r,tag)
 		    }
-		    # table_data class="td-col-5" title="$result($r,tag)" [style width 130px text-align left] {
-		    # 	put $result($r,ip)
-		    # }
+
+		    if {$::ip == "true"} {
+			table_data class="td-col-5" [style text-align center] {
+			    put $result($r,ip)
+			}
+		    }
+
+		    if {$::date == "true"} {
+			table_data class="td-col-6" [style text-align center] {
+			    put [clock format $result($r,ts)]
+			}
+		    }
 		}
 	    }
 	}
