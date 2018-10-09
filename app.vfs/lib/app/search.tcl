@@ -131,6 +131,18 @@ m::proc -public search::guts {
 					}
 
 					division class="pull-left ml-5" {
+					    if {$::tag == "true"} {
+						set state "checked"
+					    } else {
+						set state ""
+					    }
+					    checkbox cb= id="show-tag" class="m-2" $state
+					}
+					division class="pull-left mt-1" {
+					    label for="show-tag" [style margin-top 2px] "Show Tags"
+					}
+
+					division class="pull-left ml-5" {
 					    if {$::ip == "true"} {
 						set state "checked"
 					    } else {
@@ -376,8 +388,11 @@ m::proc -public search::cb {
 		table_th class="td-col-3" {
 		    put "DESCRIPTION"
 		}
-		table_th class="td-col-4" {
-		    put "TAGS"
+
+		if {$::tag == "true"} {
+		    table_th class="td-col-4" {
+			put "TAGS"
+		    }
 		}
 
 		if {$::ip == "true"} {
@@ -417,8 +432,11 @@ m::proc -public search::cb {
 		    table_data class="td-col-3" [style text-align left] {
 			put [url $result($r,description) $result($r,url) target=_blank]
 		    }
-		    table_data class="td-col-4 truncate" title="$result($r,tag)" [style text-align left] {
-			put $result($r,tag)
+
+		    if {$::tag == "true"} {
+			table_data class="td-col-4 truncate" title="$result($r,tag)" [style text-align left] {
+			    put $result($r,tag)
+			}
 		    }
 
 		    if {$::ip == "true"} {

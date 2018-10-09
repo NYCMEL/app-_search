@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-09 19:39:31 (melify)>
+//// Time-stamp: <2018-10-09 19:46:02 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -13,6 +13,11 @@ search.init = function(options) {
 
     $("#show-ip").on("click", function() {
 	$.cookie("ip", $(this).is(":checked"));
+	search.doit()
+    });
+    
+    $("#show-tag").on("click", function() {
+	$.cookie("tag", $(this).is(":checked"));
 	search.doit()
     });
     

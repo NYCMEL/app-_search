@@ -50,7 +50,7 @@ m::proc -private Site::cookies {
 
     #NO COOKIES FOR TEMPLATE
 
-    return "userid ip ts"
+    return "userid ip ts tag"
 }
 
 ##################################################
