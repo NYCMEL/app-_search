@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-09 16:15:41 (melify)>
+//// Time-stamp: <2018-10-09 18:43:15 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -10,6 +10,14 @@ search.init = function(options) {
     console.group("search.init");
 
     $("#searcher").focus();
+
+    $("#show-ip").on("click", function() {
+	alert("A")
+    });
+
+    $("#show-date").on("click", function() {
+	alert("B")
+    });
 
     $("#my").on("click", function() {
 	if ($("#my").is(":checked")) {
