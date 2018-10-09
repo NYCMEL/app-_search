@@ -427,7 +427,7 @@ m::proc -public search::cb {
 			}
 		    }
 
-		    if {$::date == "true"} {
+		    if {$::ts == "true"} {
 			table_data class="td-col-6" [style text-align center] {
 			    put [clock format $result($r,ts)]
 			}
