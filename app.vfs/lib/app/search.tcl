@@ -165,6 +165,12 @@ m::proc -public search::guts {
 		}
 	    }
 	}
+
+	javascript {
+	    put {
+		search.init();
+	    }
+	}
     }
 }
 
@@ -206,7 +212,11 @@ m::proc -public search::cb {
 	tk::db::sqlite::query:v -variable result "select * from search"
     } else {
 	set term ""
-	foreach i $::tags {append term "tag like '%$i%' AND "}
+
+	foreach i $::tags {
+	    append term "(tag like '%$i%' OR description like '%$i%' OR url like '%$i%') AND "
+	}
+	
 	set term [string range $term 0 end-4]
 	
 	tk::db::sqlite::query:v -variable result "select * from search where ($term)"
