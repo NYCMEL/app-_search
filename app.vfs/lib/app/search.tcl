@@ -123,11 +123,25 @@ m::proc -public search::guts {
 			    table_row {
 				table_data colspan=3 {
 				    division class="clearfix" {
-					division class="pull-left mr-2" {
+					division class="pull-left m-1" {
 					    checkbox cb= id="my"
 					}
-					division class="pull-left" {
-					    label for="my" "My Bookmarks"
+					division class="pull-left m-1" {
+					    label for="my" [style margin-top 2px] "My Bookmarks" 
+					}
+
+					division class="pull-left ml-3" {
+					    checkbox cb= id="show-ip" class="m-2"
+					}
+					division class="pull-left mt-1" {
+					    label for="show-ip" [style margin-top 2px] "Show User IP"
+					}
+
+					division class="pull-left ml-3" {
+					    checkbox cb= id="show-date" class="m-2"
+					}
+					division class="pull-left mt-1" {
+					    label for="show-date" [style margin-top 2px] "Updated Date"
 					}
 				    }
 				}
@@ -303,16 +317,6 @@ m::proc -public search::cb {
 
 		division [style background #E1F5FE] class="p-2" {
 		    division class="clearfix" {
-			division class="pull-left mr-3" {
-			    checkbox cb= id="show-ip" class="m-2"
-			    label for="show-ip" "Show User IP"
-			}
-
-			division class="pull-left mr-3" {
-			    checkbox cb= id="show-date" class="m-2"
-			    label for="show-date" "Updated Date"
-			}
-
 			division class="pull-right" {
 			    put [url "<i class='fa fa-eye'></i>" "#" onclick="jQuery('#show-query').slideToggle()" class="btn btn-sm btn-outline-primary"]
 			}
