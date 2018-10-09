@@ -21,7 +21,7 @@
 set TKSERVER [expr {0 ? "http://www.melify.com" : "/Melify/mtk/$ENV"}]
 
 set fluid       ""
-set company	"Melify <small>- Bookmark Keeper</small>"
+set company	"Melify - Bookmark Vault"
 set isolate	"1"
 
 ##############################################################################
