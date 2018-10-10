@@ -176,7 +176,7 @@ m::proc -public search::guts {
 		division class="row" {
 		    division class="col-md-12 add pt-4" [style display none] {
 			division class="alert alert-info" {
-			    table id="add-table" width="100%" class="table-responsive" {
+			    table id="add-table" width="100%" {
 				table_head {
 				    table_row {
 					table_th {

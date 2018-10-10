@@ -67,7 +67,7 @@ m::proc -public template::1::footer {
 	    division class="col-md-6" {
 		put "$::company 2018 &copy; Mel"
 	    }
-	    division class="col-md-6 hidden-sm-down d-none d-sm-block" {
+	    division class="col-md-6 hidden-xs-down d-none d-sm-block" {
 		division class="pull-right" {
 		    put "<i class='fa fa-envelope'></i> <a href='mailto:mel.heravi@gmail.com'>Mel M. Heravi +1 646.303.1234</a>"
 		}
