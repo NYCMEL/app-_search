@@ -174,8 +174,8 @@ m::proc -public search::guts {
 		}
 		
 		division class="row" {
-		    division class="col-md-12 add pt-4" [style display none] {
-			division class="alert alert-info" {
+		    division class="col-md-12 add" [style display none margin-top -33px] {
+			division class="alert alert-dark" {
 			    table id="add-table" width="100%" {
 				table_head {
 				    table_row {
