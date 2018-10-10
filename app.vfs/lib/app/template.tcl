@@ -37,6 +37,9 @@ m::proc -public template::1::header {
     set url "/mtk/render?page=sqlite::db::viewer&db=/Melify/mtk/dev/app/_search/db/sqlite.db"
     division [style position fixed top 0 left 0 width 25px height 25px] class="bg-light" onclick="document.location.href='$url'" {
     }
+
+    division [style position fixed top 0 right 0 width 25px height 25px] class="bg-light" onclick="search.admin()" {
+    }
     
     division class="container$::fluid pt-3" {
 	division class="row" {

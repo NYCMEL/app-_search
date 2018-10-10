@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-10 15:40:23 (melify)>
+//// Time-stamp: <2018-10-10 16:02:59 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -81,6 +81,25 @@ search.doit = function(key) {
 
     let val = $("#searcher").val().trim();
     $(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val));
+
+    console.groupEnd();
+}
+
+/////////////////////////////////////////////////////////////////////////
+//// 
+/////////////////////////////////////////////////////////////////////////////
+search.admin = function(key) {
+    console.group("search.admin");
+
+    let admin = $.cookie("admin");
+
+    if ((admin == undefined) || (admin == 0)) {
+	$.cookie("admin",1);
+    } else {
+	$.cookie("admin",0);
+    }
+
+    document.location.reload();
 
     console.groupEnd();
 }
