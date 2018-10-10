@@ -43,7 +43,7 @@ m::proc -public template::1::header {
 	    division class="col-md-6 mt-2 amplitude-regular" [style font-size 36px color #BCAAA4] {
 		puts "Melify <small class=amplitude-light>- Bookmark Vault</small>"
 	    }
-	    division class="col-md-6 mt-2 hidden-sm-down d-none d-sm-block" [style font-size 36px color #BCAAA4] {
+	    division class="col-md-6 mt-2 hidden-xs-down d-none d-xs-block" [style font-size 36px color #BCAAA4] {
 		put [url "<i class='fa fa-bug'></i> GOT BUGS ?" "mailto:mel.m.heravi@jpmchase.com?subject=FIX+THIS+BUG" class="btn btn-info btn-lg float-right"]
 	    }
 	}
@@ -64,7 +64,7 @@ m::proc -public template::1::footer {
 	    division class="col-md-6" {
 		put "$::company 2018 &copy; Mel"
 	    }
-	    division class="col-md-6 hidden-sm-down d-none d-sm-block" {
+	    division class="col-md-6 hidden-xs-down d-none d-xs-block" {
 		division class="pull-right" {
 		    put "<i class='fa fa-envelope'></i> <a href='mailto:mel.heravi@gmail.com'>Mel M. Heravi +1 646.303.1234</a>"
 		}

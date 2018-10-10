@@ -107,7 +107,7 @@ m::proc -public search::guts {
 	    division class="container" {
 		division class="row" {
 		    division class="col-md-12" {
-			table width=100% [style height 80px] {
+			table width=100% {
 			    table_row {
 				table_data width=100% {
 				    text search= id="searcher" placeholder="I am looking for ..." class="form-control input-lg p-3" [style height 70px] 
@@ -116,54 +116,55 @@ m::proc -public search::guts {
 				    button "<i class='fa fa-search'></i>" class="btn btn-lg btn-outline-secondary" [style padding 18px width 80px height 70px] id="do-search"
 				}
 
-				table_data class="hidden-sm-down d-none d-sm-block" {
+				table_data class="hidden-xs-down d-none d-xs-block" {
 				    button "<i class='fa fa-plus-circle fa-lg'></i> NEW Bookmark" id="add-new-bookmark" class="btn btn-lg btn-secondary" [style padding 18px width 100% height 70px]
 				}
 			    }
-			    table_row class="hidden-sm-down d-none d-sm-block" {
-				table_data colspan=3 {
-				    division class="clearfix" {
-					division class="pull-left m-1" {
+
+			    table_row  {
+				table_data colspan="4" {
+				    division class="clearfix hidden-xs-down d-none d-xs-block" {
+					division class="pull-left mt-1" {
 					    checkbox cb= id="my" 
 					}
-					division class="pull-left m-1" {
-					    label for="my" [style margin-top 2px] "My Bookmarks" 
+					division class="pull-left mr-4" {
+					    label for="my" class="ml-1" [style margin-top 2px] "My Bookmarks"
 					}
 
-					division class="pull-left ml-5" {
+					division class="pull-left mt-1" {
 					    if {$::qtag == "true"} {
 						set state "checked"
 					    } else {
 						set state ""
 					    }
-					    checkbox cb= id="show-tag" class="m-2" $state
+					    checkbox cb= id="show-tag" $state
 					}
-					division class="pull-left mt-1" {
-					    label for="show-tag" [style margin-top 2px] "Show Tags"
+					division class="pull-left mr-3" {
+					    label for="show-tag" class="ml-1" [style margin-top 2px] "Show Tags"
 					}
 
-					division class="pull-left ml-5" {
+					division class="pull-left mt-1" {
 					    if {$::qip == "true"} {
 						set state "checked"
 					    } else {
 						set state ""
 					    }
-					    checkbox cb= id="show-ip" class="m-2" $state
+					    checkbox cb= id="show-ip" $state
 					}
-					division class="pull-left mt-1" {
-					    label for="show-ip" [style margin-top 2px] "Show User IP"
+					division class="pull-left mr-3" {
+					    label for="show-ip" class="ml-1" [style margin-top 2px] "Show User IP"
 					}
 
-					division class="pull-left ml-3" {
+					division class="pull-left mt-1" {
 					    if {$::qts == "true"} {
 						set state "checked"
 					    } else {
 						set state ""
 					    }
-					    checkbox cb= id="show-date" class="m-2" $state
+					    checkbox cb= id="show-date" $state
 					}
-					division class="pull-left mt-1" {
-					    label for="show-date" [style margin-top 2px] "Updated Date"
+					division class="pull-left" {
+					    label for="show-date" class="ml-1" [style margin-top 2px] "Updated Date"
 					}
 				    }
 				}
@@ -249,7 +250,7 @@ m::proc -public search::help {
     Trace
     variable _id [id]
     
-    division class="alert alert-warning hidden-sm-down d-none d-sm-block" {
+    division class="alert alert-warning hidden-xs-down d-none d-xs-block" {
 	put "<span class='amplitude-regular'>ENTER THINGS LIKE:</span>"
 	
 	division class="container" {
