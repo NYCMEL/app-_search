@@ -250,6 +250,8 @@ m::proc -public search::help {
     Trace
     variable _id [id]
     
+    return
+
     division class="alert alert-warning hidden-sm-down d-none d-sm-block" {
 	put "<span class='amplitude-regular'>ENTER THINGS LIKE:</span>"
 	
