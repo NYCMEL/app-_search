@@ -116,14 +116,14 @@ m::proc -public search::guts {
 				    button "<i class='fa fa-search'></i>" class="btn btn-lg btn-outline-secondary" [style padding 18px width 80px height 70px] id="do-search"
 				}
 
-				table_data class="hidden-xs-down d-none d-xs-block" {
+				table_data class="hidden-sm-down d-none d-sm-block" {
 				    button "<i class='fa fa-plus-circle fa-lg'></i> NEW Bookmark" id="add-new-bookmark" class="btn btn-lg btn-secondary" [style padding 18px width 100% height 70px]
 				}
 			    }
 
 			    table_row  {
 				table_data colspan="4" {
-				    division class="clearfix hidden-xs-down d-none d-xs-block" {
+				    division class="clearfix hidden-sm-down d-none d-sm-block" {
 					division class="pull-left mt-1" {
 					    checkbox cb= id="my" 
 					}
@@ -250,7 +250,7 @@ m::proc -public search::help {
     Trace
     variable _id [id]
     
-    division class="alert alert-warning hidden-xs-down d-none d-xs-block" {
+    division class="alert alert-warning hidden-sm-down d-none d-sm-block" {
 	put "<span class='amplitude-regular'>ENTER THINGS LIKE:</span>"
 	
 	division class="container" {
