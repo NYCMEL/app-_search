@@ -175,7 +175,7 @@ m::proc -public search::guts {
 		division class="row" {
 		    division class="col-md-12 add pt-4" [style display none] {
 			division class="alert alert-info" {
-			    table id="add-table" width="100%" {
+			    table id="add-table" width="100%" class="table-responsive" {
 				table_head {
 				    table_row {
 					table_th {
@@ -373,81 +373,83 @@ m::proc -public search::cb {
 	set style [style border "2px red dashed"]
     }
 
-    table id="search-table" class="table table-striped table-bordered" $style {
-	table_head {
-	    table_row {
-		table_th class="td-col-0" [style width 50px text-align right] {
-		    put "#"
-		}
- 		table_th class="td-col-1" [style width 50px text-align center] {
-		    put ""
-		}
- 		table_th class="td-col-2" [style width 50px text-align center] {
-		    put ""
-		}
-		table_th class="td-col-3" {
-		    put "DESCRIPTION"
-		}
-
-		if {$::qtag == "true"} {
-		    table_th class="td-col-4" {
-			put "TAGS"
+    division class="table-responsive" {
+	table id="search-table" class="table table-striped table-bordered" $style {
+	    table_head {
+		table_row {
+		    table_th class="td-col-0" [style width 50px text-align right] {
+			put "#"
 		    }
-		}
-
-		if {$::qip == "true"} {
-		    table_th class="td-col-5" [style text-align center] {
-			put "IP"
+		    table_th class="td-col-1" [style width 50px text-align center] {
+			put ""
 		    }
-		 }
-
-		if {$::qts == "true"} {
-		    table_th class="td-col-6" [style text-align center] {
-			put "DATE"
+		    table_th class="td-col-2" [style width 50px text-align center] {
+			put ""
 		    }
-		 }
-	    }
-	}
-
-	table_body {
-	    for {set r 0} {$r < [lindex $result(*) 0]} {incr r} {
-		table_row id="row-$result($r,id)" [style width 50px text-align right] {
-		    table_data class="td-col-0" {
-			put [incr cnt]
-		    }
-		    table_data class="td-col-1" [style width 50px text-align center] {
-			if {[string trim $::env(REMOTE_ADDR)] == [string trim $result($r,ip)]} {
-			    put [url "<i class='fa fa-trash'></i>" "#" bid="$result($r,id)"]
-			} else {
-			    put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-trash'></i></span>"
-			}
-		    }
-		    table_data class="td-col-2" [style width 50px text-align center] {
-			if {$::env(REMOTE_ADDR) == $result($r,ip)} {
-			    put [url "<i class='fa fa-edit'></i>" "#" pid="$result($r,id)", url="$result($r,url)" desc="$result($r,description)" tag="$result($r,tag)"]
-			} else {
-			    put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-edit'></i></span>"
-			}
-		    }
-		    table_data class="td-col-3" [style text-align left] {
-			put [url $result($r,description) $result($r,url) target=_blank]
+		    table_th class="td-col-3" {
+			put "DESCRIPTION"
 		    }
 
 		    if {$::qtag == "true"} {
-			table_data class="td-col-4 truncate" title="$result($r,tag)" [style text-align left] {
-			    put $result($r,tag)
+			table_th class="td-col-4" {
+			    put "TAGS"
 			}
 		    }
 
 		    if {$::qip == "true"} {
-			table_data class="td-col-5" [style text-align center] {
-			    put $result($r,ip)
+			table_th class="td-col-5" [style text-align center] {
+			    put "IP"
 			}
 		    }
 
 		    if {$::qts == "true"} {
-			table_data class="td-col-6" [style text-align center] {
-			    put [clock format $result($r,ts)]
+			table_th class="td-col-6" [style text-align center] {
+			    put "DATE"
+			}
+		    }
+		}
+	    }
+
+	    table_body {
+		for {set r 0} {$r < [lindex $result(*) 0]} {incr r} {
+		    table_row id="row-$result($r,id)" [style width 50px text-align right] {
+			table_data class="td-col-0" {
+			    put [incr cnt]
+			}
+			table_data class="td-col-1" [style width 50px text-align center] {
+			    if {[string trim $::env(REMOTE_ADDR)] == [string trim $result($r,ip)]} {
+				put [url "<i class='fa fa-trash'></i>" "#" bid="$result($r,id)"]
+			    } else {
+				put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-trash'></i></span>"
+			    }
+			}
+			table_data class="td-col-2" [style width 50px text-align center] {
+			    if {$::env(REMOTE_ADDR) == $result($r,ip)} {
+				put [url "<i class='fa fa-edit'></i>" "#" pid="$result($r,id)", url="$result($r,url)" desc="$result($r,description)" tag="$result($r,tag)"]
+			    } else {
+				put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-edit'></i></span>"
+			    }
+			}
+			table_data class="td-col-3" [style text-align left] {
+			    put [url $result($r,description) $result($r,url) target=_blank]
+			}
+
+			if {$::qtag == "true"} {
+			    table_data class="td-col-4 truncate" title="$result($r,tag)" [style text-align left] {
+				put $result($r,tag)
+			    }
+			}
+
+			if {$::qip == "true"} {
+			    table_data class="td-col-5" [style text-align center] {
+				put $result($r,ip)
+			    }
+			}
+
+			if {$::qts == "true"} {
+			    table_data class="td-col-6" [style text-align center] {
+				put [clock format $result($r,ts)]
+			    }
 			}
 		    }
 		}
