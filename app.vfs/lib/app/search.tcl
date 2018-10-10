@@ -1,4 +1,4 @@
-###HEADS###################################################################
+##HEADS###################################################################
 #
 #  Melify Internet Toolkit (MTK) - Copyright (C) 2015  Melify LLC.
 #  
@@ -250,23 +250,17 @@ m::proc -public search::help {
     Trace
     variable _id [id]
     
-    return
-
     division class="alert alert-warning hidden-sm-down d-none d-sm-block" {
-	put "<span class='amplitude-regular'>ENTER THINGS LIKE:</span>"
+	put "<span class='amplitude-regular'>ENTER THINGS PARTIAL STRINGS LIKE:</span>"
 	
 	division class="container" {
 	    division class="row" {
 		division class="col-md-6" {
 		    bullet_list class="mt-2" {
-			li "assump mat prod"
-			li "countdown"
-			li "goog Fin"
-			li "UAT"
+			li "goog fin"
+			li "mel port"
+			li "jav sc def"
 		    }
-		}
-		division class="col-md-6" {
-		    h4 [style margin 0 padding 0 text-align right line-height 35px] "ALL your <b>Bootmarks</b> in one place. <BR> So everyone can find, play and enjoy"
 		}
 	    }
 	}
