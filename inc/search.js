@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-10 10:17:40 (melify)>
+//// Time-stamp: <2018-10-10 15:40:23 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -10,6 +10,8 @@ search.init = function(options) {
     console.group("search.init");
 
     $("#searcher").focus();
+
+    let admin = $.cookie("admin");
 
     $("#show-ip").on("click", function() {
 	$.cookie("qip", $(this).is(":checked"));

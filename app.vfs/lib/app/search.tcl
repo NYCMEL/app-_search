@@ -414,14 +414,14 @@ m::proc -public search::cb {
 			    put [incr cnt]
 			}
 			table_data class="td-col-1" [style width 30px text-align center] {
-			    if {[string trim $::env(REMOTE_ADDR)] == [string trim $result($r,ip)]} {
+			    if {($::admin == 1) || ([string trim $::env(REMOTE_ADDR)] == [string trim $result($r,ip)])} {
 				put [url "<i class='fa fa-trash'></i>" "#" bid="$result($r,id)"]
 			    } else {
 				put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-trash'></i></span>"
 			    }
 			}
 			table_data class="td-col-2" [style width 30px text-align center] {
-			    if {$::env(REMOTE_ADDR) == $result($r,ip)} {
+			    if {($::admin == 1) || ([string trim $::env(REMOTE_ADDR)] == [string trim $result($r,ip)])} {
 				put [url "<i class='fa fa-edit'></i>" "#" pid="$result($r,id)", url="$result($r,url)" desc="$result($r,description)" tag="$result($r,tag)"]
 			    } else {
 				put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-edit'></i></span>"
