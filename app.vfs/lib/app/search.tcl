@@ -116,11 +116,11 @@ m::proc -public search::guts {
 				    button "<i class='fa fa-search'></i>" class="btn btn-lg btn-outline-secondary" [style padding 18px width 80px height 70px] id="do-search"
 				}
 
-				table_data {
+				table_data class="hidden-sm-down d-none d-sm-block" {
 				    button "<i class='fa fa-plus-circle fa-lg'></i> NEW Bookmark" id="add-new-bookmark" class="btn btn-lg btn-secondary" [style padding 18px width 100% height 70px]
 				}
 			    }
-			    table_row {
+			    table_row class="hidden-sm-down d-none d-sm-block" {
 				table_data colspan=3 {
 				    division class="clearfix" {
 					division class="pull-left m-1" {
@@ -249,7 +249,7 @@ m::proc -public search::help {
     Trace
     variable _id [id]
     
-    division class="alert alert-warning" {
+    division class="alert alert-warning hidden-sm-down d-none d-sm-block" {
 	put "<span class='amplitude-regular'>ENTER THINGS LIKE:</span>"
 	
 	division class="container" {
