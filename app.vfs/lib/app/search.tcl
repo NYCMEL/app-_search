@@ -113,11 +113,11 @@ m::proc -public search::guts {
 				    text search= id="searcher" placeholder="I am looking for ..." class="form-control input-lg p-3" [style height 70px] 
 				}
 				table_data [style max-width 150px] {
-				    button "<i class='fa fa-search'></i>" class="btn btn-lg btn-outline-secondary" [style padding 18px width 80px height 70px] id="do-search"
+				    button "<i class='fa fa-search fa-lg'></i>" class="btn btn-lg btn-outline-secondary" [style padding 18px width 80px height 70px] id="do-search"
 				}
 
 				table_data class="hidden-sm-down d-none d-sm-block" {
-				    button "<i class='fa fa-plus-circle fa-lg'></i> NEW Bookmark" id="add-new-bookmark" class="btn btn-lg btn-secondary" [style padding 18px width 100% height 70px]
+				    button "<i class='fa fa-plus-circle fa-lg'></i>" id="add-new-bookmark" class="btn btn-lg btn-outline-success" [style padding 18px width 100% height 70px width 80px]
 				}
 			    }
 
@@ -175,7 +175,7 @@ m::proc -public search::guts {
 		
 		division class="row" {
 		    division class="col-md-12 add" [style display none margin-top -33px] {
-			division class="alert alert-dark" {
+			division class="alert alert-success" {
 			    table id="add-table" width="100%" {
 				table_head {
 				    table_row {

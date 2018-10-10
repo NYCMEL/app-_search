@@ -23,6 +23,9 @@
 #search #add-table th, #search #add-table tr, #search #add-table td {
   border: 0 !important; }
 
+#search #search-table {
+  background: #FFF; }
+
 #search #search-table .col-0, #search #search-table .col-1, #search #search-table .col-2 {
   width: 30px !important; }
 
