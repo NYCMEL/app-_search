@@ -377,13 +377,13 @@ m::proc -public search::cb {
 	table id="search-table" class="table table-striped table-bordered" $style {
 	    table_head {
 		table_row {
-		    table_th class="td-col-0" [style width 50px text-align right] {
+		    table_th class="td-col-0" [style width 30px text-align right] {
 			put "#"
 		    }
-		    table_th class="td-col-1" [style width 50px text-align center] {
+		    table_th class="td-col-1" [style width 30px text-align center] {
 			put ""
 		    }
-		    table_th class="td-col-2" [style width 50px text-align center] {
+		    table_th class="td-col-2" [style width 30px text-align center] {
 			put ""
 		    }
 		    table_th class="td-col-3" {
@@ -412,18 +412,18 @@ m::proc -public search::cb {
 
 	    table_body {
 		for {set r 0} {$r < [lindex $result(*) 0]} {incr r} {
-		    table_row id="row-$result($r,id)" [style width 50px text-align right] {
+		    table_row id="row-$result($r,id)" [style width 30px text-align right] {
 			table_data class="td-col-0" {
 			    put [incr cnt]
 			}
-			table_data class="td-col-1" [style width 50px text-align center] {
+			table_data class="td-col-1" [style width 30px text-align center] {
 			    if {[string trim $::env(REMOTE_ADDR)] == [string trim $result($r,ip)]} {
 				put [url "<i class='fa fa-trash'></i>" "#" bid="$result($r,id)"]
 			    } else {
 				put "<span style='color:#999' title='Not Your Bookmark'><i class='fa fa-trash'></i></span>"
 			    }
 			}
-			table_data class="td-col-2" [style width 50px text-align center] {
+			table_data class="td-col-2" [style width 30px text-align center] {
 			    if {$::env(REMOTE_ADDR) == $result($r,ip)} {
 				put [url "<i class='fa fa-edit'></i>" "#" pid="$result($r,id)", url="$result($r,url)" desc="$result($r,description)" tag="$result($r,tag)"]
 			    } else {
