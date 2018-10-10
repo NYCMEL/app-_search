@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-10 08:20:24 (melify)>
+//// Time-stamp: <2018-10-10 10:17:40 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -51,6 +51,13 @@ search.init = function(options) {
     });
 
     $("#searcher").keyup((e) => {
+	let val = $("#searcher").val().trim();
+
+	// CLEAR RESULTS 
+	if (val == "") {
+	    $(".result").load("/mtk/render?ajax=1&callback=search::help");
+	}
+
 	if ($("#searcher").is(":focus") && (e.keyCode == 13)) {
 	    search.doit()
 	}
@@ -71,15 +78,7 @@ search.doit = function(key) {
     console.group("search.doit");
 
     let val = $("#searcher").val().trim();
-
-    console.log("===", val);
-
-    // CLEAR RESULTS 
-    if (val == "") {
-	$(".result").load("/mtk/render?ajax=1&callback=search::help");
-    } else {
-	$(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val));
-    }
+    $(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val));
 
     console.groupEnd();
 }
