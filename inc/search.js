@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-09 20:03:33 (melify)>
+//// Time-stamp: <2018-10-10 08:20:24 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -50,8 +50,10 @@ search.init = function(options) {
 	$(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val));
     });
 
-    $("#searcher").keyup(() => {
-	search.doit()
+    $("#searcher").keyup((e) => {
+	if ($("#searcher").is(":focus") && (e.keyCode == 13)) {
+	    search.doit()
+	}
     });
 
     $("#add-new-bookmark").unbind().on("click", function() {
