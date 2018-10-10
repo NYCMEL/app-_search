@@ -251,7 +251,7 @@ m::proc -public search::help {
     variable _id [id]
     
     division class="alert alert-warning hidden-sm-down d-none d-sm-block" {
-	put "<span class='amplitude-regular'>ENTER THINGS PARTIAL STRINGS LIKE:</span>"
+	put "<span class='amplitude-regular'>YOU CAN ENTER PARTIAL STRINGS IN ANY ORDER :</span>"
 	
 	division class="container" {
 	    division class="row" {
