@@ -22,9 +22,8 @@ namespace eval search {}
 include "/inc/search.css"
 include "/inc/search.js"
 
-if {[info exist my] == 0} {
-    set my 0
-}
+if {[info exist my]   == 0} {set    my 0}
+if {[info exist find] == 0} {set find ""}
 
 ######################################################
 ##### 
@@ -230,6 +229,17 @@ m::proc -public search::guts {
 	    }
 	}
 
+	if {$::find != ""} {
+	    javascript {
+		put [subst {
+		    jQuery("#searcher").val("$::find");
+
+		    search.doit();
+		}]
+	    }
+	}
+
+
 	javascript {
 	    put {
 		jQuery(document).ready(function() {
@@ -334,17 +344,15 @@ m::proc -public search::cb {
 		
 		set term [string range $term 0 end-4]
 
-		division [style background #E1F5FE] class="p-2" {
-		    division class="clearfix" {
-			division class="pull-right" {
-			    put [url "<i class='fa fa-eye'></i>" "#" onclick="jQuery('#show-query').slideToggle()" class="btn btn-sm btn-outline-primary"]
-			}
+		division class="clearfix" {
+		    division class="pull-right" {
+			put [url "&nbsp;&nbsp;" "#" class="btn" onclick="jQuery('#show-query').slideToggle()" [style height 30px width 30px]]
 		    }
+		}
 
-		    division [style display none] id="show-query" class="p-2" {
-			hr
-			put "select * from search where ($term)"
-		    }
+		division [style display none] id="show-query" class="p-2" {
+		    hr
+		    put "select * from search where ($term)"
 		}
 		
 		tk::db::sqlite::query:v -variable result "select * from search where ($term)"

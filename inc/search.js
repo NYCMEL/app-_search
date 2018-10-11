@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-10 16:09:57 (melify)>
+//// Time-stamp: <2018-10-11 16:33:40 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -81,6 +81,8 @@ search.doit = function(key) {
 
     let val = $("#searcher").val().trim();
     $(".result").load("/mtk/render?ajax=1&callback=search::cb&tags=" + escape(val));
+
+    history.pushState({}, "Bookmark Vault", "/mtk/render?find=" + escape(val));
 
     console.groupEnd();
 }
