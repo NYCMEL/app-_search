@@ -1,5 +1,12 @@
 #!/Melify/bin/mac/tclkit
 
+
+set x "http://tk-search.melify.com/tk/lib/components/w/html"
+set t [clock seconds]
+
+####################################
+# PRODUCTION READY COMPONENTS
+####################################
 set items {
     accordion
     app
@@ -42,10 +49,6 @@ set items {
     wizard
 }
 
-set x "http://tk-search.melify.com/tk/lib/components/misc/webpack/prod"
-
-set t [clock seconds]
-
 set qstr "delete from search where ip='0.0.0.0'\;"
 set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
@@ -53,6 +56,9 @@ foreach i $items {
     append qstr "$tmp (null, '$x/$i', 'W3C Component - $i (production)', 'W3C Component prod $i', '0.0.0.0', '$t')\;"
 }
 
+####################################
+# DEVELOPMENT COMPONENTS
+####################################
 set items {
     accordion
     app
@@ -84,17 +90,15 @@ set items {
     typeahead
     wizard
 }
-
-set x "http://tk-search.melify.com/tk/lib/components/w/html"
-
-set t [clock seconds]
-
 set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
 foreach i $items {
     append qstr "$tmp (null, '$x/$i.html', 'W3C Component - $i (development)', 'W3C Component dev development $i', '0.0.0.0', '$t')\;"
 }
 
+####################################
+# VIDEOS
+####################################
 set items {
     Cloud-Widgets.mp4
     TurboPraise.mp4
@@ -128,10 +132,6 @@ set items {
     iPR-large.mp4
     PageBuilder.mp4
 }
-
-set x "http://tk-search.turnongreen.com"
-
-set t [clock seconds]
 
 set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
