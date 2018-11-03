@@ -32,7 +32,7 @@ set prod {
     wizard
 }
 
-set x "http://tk-search.melify.com/tk/lib/components/misc/webpack/prod"
+set x "http://tk-search.melify.com/tk/lib/components/w/html"
 
 set t [clock seconds]
 
@@ -40,7 +40,7 @@ set qstr "delete from search where ip='0.0.0.0'\;"
 set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
 foreach i $prod {
-    append qstr "$tmp (null, '$x/$i', 'W3C Component (prod) - $i', 'W3C Component (prod) $i', '0.0.0.0', '$t')\;"
+    append qstr "$tmp (null, '$x/$i.html', 'W3C Component (dev) - $i', 'W3C Component (dev) $i', '1.1.1.1', '$t')\;"
 }
 
 puts $qstr
