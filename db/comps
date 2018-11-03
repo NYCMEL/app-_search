@@ -1,0 +1,46 @@
+#!/Melify/bin/mac/tclkit
+
+set prod {
+    accordion
+    app
+    band
+    card
+    carousel
+    center
+    chart
+    dad
+    dropper
+    flip
+    form
+    listbox
+    maker
+    matrix
+    melify
+    modal
+    notify
+    orgchart
+    page
+    popup
+    slide
+    stocks
+    swipe
+    table
+    ticker
+    tile
+    toolbar
+    typeahead
+    wizard
+}
+
+set x "http://tk-search.melify.com/tk/lib/components/misc/webpack/prod"
+
+set t [clock seconds]
+
+set qstr ""
+set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
+
+foreach i $prod {
+    append qstr "$tmp (null, '$x/$i', 'W3C Component (prod) - $i', 'W3C Component (prod) $i', '0.0.0.0', '$t')\;"
+}
+
+puts $qstr
