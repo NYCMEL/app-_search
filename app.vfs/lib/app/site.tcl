@@ -73,6 +73,8 @@ m::proc -private Site::head {
 	    wcURL="http://localhost:1234";
 	    </script>
 
+	    <link href="/GitHub/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 	    <script type="text/javascript" src="/tk/bundles/wc.bundle.gz.js"></script>
 	    <script type="text/javascript" src="/inc/app.js"></script>
 	    <script type="text/javascript" src="/tk/inc/common.js"></script>
