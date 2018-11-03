@@ -1,8 +1,7 @@
 #!/Melify/bin/mac/tclkit
 
-
-set x "http://tk-search.melify.com/tk/lib/components/w/html"
 set t [clock seconds]
+set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
 ####################################
 # PRODUCTION READY COMPONENTS
@@ -49,8 +48,9 @@ set items {
     wizard
 }
 
+set x "http://tk-search.melify.com/tk/lib/components/misc/webpack/prod"
+
 set qstr "delete from search where ip='0.0.0.0'\;"
-set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
 foreach i $items {
     append qstr "$tmp (null, '$x/$i', 'W3C Component - $i (production)', 'W3C Component prod $i', '0.0.0.0', '$t')\;"
@@ -90,7 +90,8 @@ set items {
     typeahead
     wizard
 }
-set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
+
+set x "http://tk-search.melify.com/tk/lib/components/w/html"
 
 foreach i $items {
     append qstr "$tmp (null, '$x/$i.html', 'W3C Component - $i (development)', 'W3C Component dev development $i', '0.0.0.0', '$t')\;"
@@ -133,11 +134,11 @@ set items {
     PageBuilder.mp4
 }
 
-set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
+set x "http://tk-search.turnongreen.com"
 
 foreach i $items {
     regsub -all {\-} $i " " j
-    set k [lindex [split $i /] end]
+    set k [lindex [split [lindex [split $i /] end] .] 0]
     append qstr "$tmp (null, '$x/videos/$i', 'Video - $k', 'video videos $j', '0.0.0.0', '$t')\;"
 }
 
