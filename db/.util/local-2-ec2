@@ -1,1 +1,1 @@
- scp -i /Melify/private/_notes/Melify.pem sqlite.db ubuntu@melify.com:/Melify/mtk/dev/app/_search/db
+ scp -i /Melify/private/_notes/Melify.pem ../sqlite.db ubuntu@melify.com:/Melify/mtk/dev/app/_search/db

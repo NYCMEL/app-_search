@@ -50,7 +50,7 @@ set qstr "delete from search where ip='0.0.0.0'\;"
 set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
 foreach i $prod {
-    append qstr "$tmp (null, '$x/$i', 'W3C Component (prod) - $i', 'W3C Component (prod) $i', '0.0.0.0', '$t')\;"
+    append qstr "$tmp (null, '$x/$i', 'W3C Component - $i (production)', 'W3C Component prod $i', '0.0.0.0', '$t')\;"
 }
 
 set prod {
@@ -92,7 +92,7 @@ set t [clock seconds]
 set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
 foreach i $prod {
-    append qstr "$tmp (null, '$x/$i.html', 'W3C Component (dev) - $i', 'W3C Component (dev) $i', '0.0.0.0', '$t')\;"
+    append qstr "$tmp (null, '$x/$i.html', 'W3C Component - $i (development)', 'W3C Component dev development $i', '0.0.0.0', '$t')\;"
 }
 
 puts $qstr
