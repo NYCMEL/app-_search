@@ -105,8 +105,6 @@ set items {
     Rapid-Prototyping.mp4
     FannieMae/fannie.mp4
     All-Hands-II.mp4
-    Camtasia/MPL/MPL.mp4
-    PinDrop.mp4
     Archives/Hub-IRE-I.mp4
     Archives/Responsive.mp4
     Archives/HUB-IRE.mp4
@@ -123,7 +121,6 @@ set items {
     Hub-Goal-Creation.mp4
     TheCompany.mp4
     CodeGen/Generator.mp4
-    BidRX.mp4
     Citi-RTDMS.mp4
     Demo.mp4
     New-Website.mp4
@@ -140,7 +137,8 @@ set tmp "INSERT OR REPLACE INTO search (id,url,description,tag,ip,ts) VALUES "
 
 foreach i $items {
     regsub -all {\-} $i " " j
-    append qstr "$tmp (null, '$x/videos/$i', 'Video $i', 'video $j', '0.0.0.0', '$t')\;"
+    set k [lindex [split $i /] end]
+    append qstr "$tmp (null, '$x/videos/$i', 'Video - $k', 'video videos $j', '0.0.0.0', '$t')\;"
 }
 
 puts $qstr
