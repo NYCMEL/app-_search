@@ -123,47 +123,58 @@ m::proc -public search::guts {
 			    table_row  {
 				table_data colspan="4" {
 				    division class="clearfix hidden-sm-down d-none d-sm-block" {
-					division class="pull-left mr-1" {
-					    checkbox cb= id="my" 
-					}
-					division class="pull-left mr-4" {
-					    label for="my" class="ml-1" [style margin-top 2px] "My Bookmarks"
-					}
-
-					division class="pull-left mr-1" {
-					    if {$::qtag == "true"} {
-						set state "checked"
-					    } else {
-						set state ""
-					    }
-					    checkbox cb= id="show-tag" $state
-					}
-					division class="pull-left mr-3" {
-					    label for="show-tag" class="ml-1" [style margin-top 2px] "Show Tags"
-					}
-
-					division class="pull-left mr-1" {
-					    if {$::qip == "true"} {
-						set state "checked"
-					    } else {
-						set state ""
-					    }
-					    checkbox cb= id="show-ip" $state
-					}
-					division class="pull-left mr-3" {
-					    label for="show-ip" class="ml-1" [style margin-top 2px] "Show User IP"
-					}
-
-					division class="pull-left mr-1" {
-					    if {$::qts == "true"} {
-						set state "checked"
-					    } else {
-						set state ""
-					    }
-					    checkbox cb= id="show-date" $state
-					}
 					division class="pull-left" {
-					    label for="show-date" class="ml-1" [style margin-top 2px] "Updated Date"
+					    division class="pull-left mr-1" {
+						checkbox cb= id="my" 
+					    }
+					    division class="pull-left mr-4" {
+						label for="my" class="ml-1" [style margin-top 2px] "My Bookmarks"
+					    }
+
+					    division class="pull-left mr-1" {
+						checkbox cb= id="private" 
+					    }
+					    division class="pull-left mr-4" {
+						label for="private" class="ml-1" [style margin-top 2px] "Private to me"
+					    }
+					}
+
+					division class="pull-right" {
+					    division class="pull-left mr-1" {
+						if {$::qtag == "true"} {
+						    set state "checked"
+						} else {
+						    set state ""
+						}
+						checkbox cb= id="show-tag" $state
+					    }
+					    division class="pull-left mr-3" {
+						label for="show-tag" class="ml-1" [style margin-top 2px] "Show Tags"
+					    }
+
+					    division class="pull-left mr-1" {
+						if {$::qip == "true"} {
+						    set state "checked"
+						} else {
+						    set state ""
+						}
+						checkbox cb= id="show-ip" $state
+					    }
+					    division class="pull-left mr-3" {
+						label for="show-ip" class="ml-1" [style margin-top 2px] "Show User IP"
+					    }
+
+					    division class="pull-left mr-1" {
+						if {$::qts == "true"} {
+						    set state "checked"
+						} else {
+						    set state ""
+						}
+						checkbox cb= id="show-date" $state
+					    }
+					    division class="pull-left" {
+						label for="show-date" class="ml-1" [style margin-top 2px] "Updated Date"
+					    }
 					}
 				    }
 				}
