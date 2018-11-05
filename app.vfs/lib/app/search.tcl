@@ -184,7 +184,7 @@ m::proc -public search::guts {
 		}
 		
 		division class="row" {
-		    division class="col-md-12 add" [style display none margin-top -33px] {
+		    division class="col-md-12 add" [style display block margin-top -33px] {
 			division class="alert alert-success" {
 			    table id="add-table" width="100%" {
 				table_head {
@@ -219,11 +219,22 @@ m::proc -public search::guts {
 			    }
 
 			    division {
-				division class="mt-4 mb-2" {
+				division class="mt-4 mb-2 clearfix" {
 				    export editing=false
-				    button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
-				    space 10 0
-				    put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add').slideToggle()" style="width:120px"]
+
+				    division class="pull-left" {
+					button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
+					space 10 0
+					put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add').slideToggle()" style="width:120px"]
+				    }
+				    division class="pull-right" {
+					division class="pull-left mr-1" {
+					    checkbox cb= id="is-private" 
+					}
+					division class="pull-left mr-4" {
+					    label for="is-private" class="ml-1 amplitude-regular" [style margin-top 2px] "Make it Private"
+					}
+				    }
 				}
 			    }
 			}
