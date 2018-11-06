@@ -373,19 +373,6 @@ m::proc -public search::cb {
 ######################################################
 ##### 
 ######################################################
-m::proc -public search::del {
-} {
-    Documentation goes here...
-} {    
-    Trace
-    variable _id [id]
-    
-    tk::db::sqlite::query "delete from search where id=$::id"
-}
-
-######################################################
-##### 
-######################################################
 m::proc -public search::top {
 } {
     Documentation goes here...
@@ -533,4 +520,17 @@ m::proc -public search::add {
 	    }
 	}
     }
+}
+
+######################################################
+##### 
+######################################################
+m::proc -public search::del {
+} {
+    Documentation goes here...
+} {    
+    Trace
+    variable _id [id]
+    
+    tk::db::sqlite::query "delete from search where id=$::id"
 }
