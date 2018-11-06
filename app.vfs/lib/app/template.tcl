@@ -65,7 +65,13 @@ m::proc -public template::1::footer {
     
     division class="container$::fluid" {
 	division class="row" {
-	    division class="col-md-6" {
+	    division class="col-md-12 mb-3" {
+		put [img /tk/img/common/divider-shadow-2.png width=100% height=30]
+	    }
+	}
+	
+	division class="row" {
+	    division class="col-md-6 mb-5" {
 		put "$::company 2018 &copy; Mel"
 	    }
 	    division class="col-md-6 hidden-xs-down d-none d-sm-block" {
