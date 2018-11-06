@@ -466,7 +466,7 @@ m::proc -public search::add {
     Trace
     variable _id [id]
     
-    division class="alert alert-success" {
+    division class="alert alert-success shadow" {
 	table id="add-table" width="100%" {
 	    table_head {
 		table_row {
