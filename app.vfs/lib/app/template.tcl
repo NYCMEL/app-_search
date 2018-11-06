@@ -47,10 +47,8 @@ m::proc -public template::1::header {
 		puts "Melify <small class=amplitude-light>- Bookmark Vault</small> <sub style=font-size:12px>$size</sub>"
 	    }
 
-	    if {0} {
-		division class="col-md-6 mt-2 hidden-sm-down d-none d-sm-block" [style font-size 36px color #BCAAA4] {
-		    put [url "<i class='fa fa-bug'></i> GOT BUGS ?" "mailto:mel.m.heravi@jpmchase.com?subject=FIX+THIS+BUG" class="btn btn-info btn-lg float-right"]
-		}
+	    division class="col-md-6 mt-2 hidden-sm-down d-none d-sm-block" [style font-size 36px color #BCAAA4] {
+		put [url "<i class='fa fa-bug'></i> GOT BUGS ?" "mailto:mel.heravi@gmail.com?subject=FIX+THIS+BUG" class="btn btn-info btn-lg float-right"]
 	    }
 	}
     }

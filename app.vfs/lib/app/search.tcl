@@ -22,8 +22,9 @@ namespace eval search {}
 include "/inc/search.css"
 include "/inc/search.js"
 
-if {[info exist my]   == 0} {set    my 0}
-if {[info exist find] == 0} {set find ""}
+if {[info exist my]      == 0} {set       my 0}
+if {[info exist find]    == 0} {set    find ""}
+if {[info exist private] == 0} {set private ""}
 
 ######################################################
 ##### 
@@ -96,148 +97,18 @@ m::proc -public search::guts {
     Trace
     variable _id [id]
     
-    if (0) {
-	source /Melify/mtk/dev/app/_search/db/.components-dev
-	source /Melify/mtk/dev/app/_search/db/.components-prod
-    }
-
     division id="${_id}" {
 	division id="search-header" {
 	    division class="container" {
 		division class="row" {
 		    division class="col-md-12" {
-			table width=100% {
-			    table_row {
-				table_data width=100% {
-				    text search= id="searcher" placeholder="I am looking for ..." class="form-control input-lg p-3" [style height 70px] 
-				}
-				table_data [style max-width 150px] {
-				    button "<i class='fa fa-search fa-lg'></i>" class="btn btn-lg btn-outline-secondary" [style padding 18px width 80px height 70px] id="do-search"
-				}
-
-				table_data class="hidden-sm-down d-none d-sm-block" {
-				    button "<i class='fa fa-plus-circle fa-lg'></i>" id="add-new-bookmark" class="btn btn-lg btn-outline-success" [style padding 18px width 100% height 70px width 80px]
-				}
-			    }
-
-			    table_row  {
-				table_data colspan="4" {
-				    division class="clearfix hidden-sm-down d-none d-sm-block" {
-					division class="pull-left" {
-					    division class="pull-left mr-1" {
-						checkbox cb= id="my" 
-					    }
-					    division class="pull-left mr-4" {
-						label for="my" class="ml-1" [style margin-top 2px] "My Bookmarks"
-					    }
-
-					    division class="pull-left mr-1" {
-						checkbox cb= id="private" 
-					    }
-					    division class="pull-left mr-4" {
-						label for="private" class="ml-1" [style margin-top 2px] "Private to me"
-					    }
-					}
-
-					division class="pull-right" {
-					    division class="pull-left mr-1" {
-						if {$::qtag == "true"} {
-						    set state "checked"
-						} else {
-						    set state ""
-						}
-						checkbox cb= id="show-tag" $state
-					    }
-					    division class="pull-left mr-3" {
-						label for="show-tag" class="ml-1" [style margin-top 2px] "Show Tags"
-					    }
-
-					    division class="pull-left mr-1" {
-						if {$::qip == "true"} {
-						    set state "checked"
-						} else {
-						    set state ""
-						}
-						checkbox cb= id="show-ip" $state
-					    }
-					    division class="pull-left mr-3" {
-						label for="show-ip" class="ml-1" [style margin-top 2px] "Show User IP"
-					    }
-
-					    division class="pull-left mr-1" {
-						if {$::qts == "true"} {
-						    set state "checked"
-						} else {
-						    set state ""
-						}
-						checkbox cb= id="show-date" $state
-					    }
-					    division class="pull-left" {
-						label for="show-date" class="ml-1" [style margin-top 2px] "Updated Date"
-					    }
-					}
-				    }
-				}
-			    }
-			}
+			top
 		    }
 		}
 		
 		division class="row" {
 		    division class="col-md-12 add" [style display none margin-top -33px] {
-			division class="alert alert-success" {
-			    table id="add-table" width="100%" {
-				table_head {
-				    table_row {
-					table_th {
-					    label "URL"
-					}
-					table_th {
-					    label "DESCRIPTION"
-					}
-					table_th {
-					    label "TAGS"
-					}
-				    }
-				}
-				table_body {
-				    table_row {
-					table_data {
-					    text url= class="form-control" id="url" [style font-size 16px height 50px]
-					    put "<small>Enter bookmark URL</small>"
-					}
-					table_data {
-					    text des= class="form-control" id="des" [style font-size 16px height 50px]
-					    put "<small>Bookmark description</small>"
-					}
-					table_data {
-					    text tag= class="form-control truncate" id="tag" [style background #FFF height 50px font-size 16px]
-					    put "<small>Bookmarks are found from these tags</small>"
-					}
-				    }
-				}
-			    }
-
-			    division {
-				division class="mt-4 mb-2 clearfix" {
-				    export editing=false
-
-				    division class="pull-left" {
-					button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
-					space 10 0
-					put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add').slideToggle()" style="width:120px"]
-				    }
-				    division class="pull-right" {
-					division class="pull-left mr-1" {
-					    checkbox cb= id="is-private" 
-					}
-					division class="pull-left mr-4" {
-					    label for="is-private" class="ml-1 amplitude-regular" [style margin-top 2px] "Make it Private"
-					}
-				    }
-				}
-			    }
-			}
+			add
 		    }
 		}
 	    }
@@ -510,4 +381,156 @@ m::proc -public search::del {
     variable _id [id]
     
     tk::db::sqlite::query "delete from search where id=$::id"
+}
+
+######################################################
+##### 
+######################################################
+m::proc -public search::top {
+} {
+    Documentation goes here...
+} {    
+    Trace
+    variable _id [id]
+    
+    table width=100% {
+	table_row {
+	    table_data width=100% {
+		text search= id="searcher" placeholder="I am looking for ..." class="form-control input-lg p-3" [style height 70px] 
+	    }
+	    table_data [style max-width 150px] {
+		button "<i class='fa fa-search fa-lg'></i>" class="btn btn-lg btn-outline-secondary" [style padding 18px width 80px height 70px] id="do-search"
+	    }
+
+	    table_data class="hidden-sm-down d-none d-sm-block" {
+		button "<i class='fa fa-plus-circle fa-lg'></i>" id="add-new-bookmark" class="btn btn-lg btn-outline-success" [style padding 18px width 100% height 70px width 80px]
+	    }
+	}
+
+	table_row  {
+	    table_data colspan="4" {
+		division class="clearfix hidden-sm-down d-none d-sm-block" {
+		    division class="pull-left" {
+			division class="pull-left mr-1" {
+			    checkbox cb= id="my" 
+			}
+			division class="pull-left mr-4" {
+			    label for="my" class="ml-1" [style margin-top 2px] "My Bookmarks"
+			}
+
+			division class="pull-left mr-1" {
+			    checkbox cb= id="private" 
+			}
+			division class="pull-left mr-4" {
+			    label for="private" class="ml-1" [style margin-top 2px] "Private to me"
+			}
+		    }
+
+		    division class="pull-right" {
+			division class="pull-left mr-1" {
+			    if {$::qtag == "true"} {
+				set state "checked"
+			    } else {
+				set state ""
+			    }
+			    checkbox cb= id="show-tag" $state
+			}
+			division class="pull-left mr-3" {
+			    label for="show-tag" class="ml-1" [style margin-top 2px] "Show Tags"
+			}
+
+			division class="pull-left mr-1" {
+			    if {$::qip == "true"} {
+				set state "checked"
+			    } else {
+				set state ""
+			    }
+			    checkbox cb= id="show-ip" $state
+			}
+			division class="pull-left mr-3" {
+			    label for="show-ip" class="ml-1" [style margin-top 2px] "Show User IP"
+			}
+
+			division class="pull-left mr-1" {
+			    if {$::qts == "true"} {
+				set state "checked"
+			    } else {
+				set state ""
+			    }
+			    checkbox cb= id="show-date" $state
+			}
+			division class="pull-left" {
+			    label for="show-date" class="ml-1" [style margin-top 2px] "Updated Date"
+			}
+		    }
+		}
+	    }
+	}
+    }
+}
+
+######################################################
+##### 
+######################################################
+m::proc -public search::add {
+} {
+    Documentation goes here...
+} {    
+    Trace
+    variable _id [id]
+    
+    division class="alert alert-success" {
+	table id="add-table" width="100%" {
+	    table_head {
+		table_row {
+		    table_th {
+			label "URL"
+		    }
+		    table_th {
+			label "DESCRIPTION"
+		    }
+		    table_th {
+			label "TAGS"
+		    }
+		}
+	    }
+
+	    table_body {
+		table_row {
+		    table_data {
+			text url= class="form-control" id="url" [style font-size 16px height 50px]
+			put "<small>Enter bookmark URL</small>"
+		    }
+		    table_data {
+			text des= class="form-control" id="des" [style font-size 16px height 50px]
+			put "<small>Bookmark description</small>"
+		    }
+		    table_data {
+			text tag= class="form-control truncate" id="tag" [style background #FFF height 50px font-size 16px]
+			put "<small>Bookmarks are found from these tags</small>"
+		    }
+		}
+	    }
+	}
+
+	division {
+	    division class="mt-4 mb-2 clearfix" {
+		export editing=false
+
+		division class="pull-left" {
+		    button "SUBMIT" class="btn btn-lg btn-outline-primary" onclick="search.add()" style="width:120px"
+		    space 10 0
+		    put [url "Cancel" "#" class="btn btn-lg btn-outline-secondary" onclick="jQuery('.add').slideToggle()" style="width:120px"]
+		}
+		division class="pull-right" {
+		    division class="pull-left mr-1" {
+			checkbox cb= id="is-private" 
+		    }
+		    division class="pull-left mr-4" {
+			label for="is-private" class="ml-1 amplitude-regular" [style margin-top 2px] "Make it Private"
+		    }
+		}
+	    }
+	}
+    }
 }
