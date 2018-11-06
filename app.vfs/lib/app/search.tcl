@@ -153,7 +153,7 @@ m::proc -public search::help {
     Trace
     variable _id [id]
     
-    division class="alert alert-warning hidden-sm-down d-none d-sm-block" {
+    division class="alert alert-warning hidden-sm-down d-none d-sm-block shadow" {
 	put "<span class='amplitude-regular'>YOU CAN ENTER PARTIAL STRINGS IN ANY ORDER :</span>"
 	
 	division class="container" {
