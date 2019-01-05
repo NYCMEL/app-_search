@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////
-//// Time-stamp: <2018-10-11 16:33:40 (melify)>
+//// Time-stamp: <2019-01-05 11:55:45 (melify)>
 /////////////////////////////////////////////////////////////////////////////////
 var search = {};
 
@@ -122,7 +122,7 @@ search.add = function(options) {
 	return false;
     }
 
-    $(".tk-dummy").load("/mtk/render?ajax=1&callback=search::add&url=" + escape(url) + "&des=" + escape(des) + "&tag=" + escape(tag) + "&edi=" + edi);
+    $(".tk-dummy").load("/mtk/render?ajax=1&callback=search::adddb&url=" + escape(url) + "&des=" + escape(des) + "&tag=" + escape(tag) + "&edi=" + edi);
     
     $(".add").slideToggle();
 

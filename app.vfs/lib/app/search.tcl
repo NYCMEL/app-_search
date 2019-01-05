@@ -173,7 +173,7 @@ m::proc -public search::help {
 ######################################################
 ##### 
 ######################################################
-m::proc -public search::add {
+m::proc -public search::adddb {
 } {
     Documentation goes here...
 } {    
