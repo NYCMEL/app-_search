@@ -63,6 +63,8 @@ m::proc -private Site::head {
     Trace
 
     tk::comment "Site::head" {
+	include "/Melify/fonts/fonts.css"
+
 	put {
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link  rel="stylesheet" href="/inc/app.css">
