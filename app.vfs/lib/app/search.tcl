@@ -260,7 +260,7 @@ m::proc -public search::cb {
 
     if {[lindex $result(*) 0] == 0} {
 	division class="alert alert-danger" {
-	    h3 class="pt-2" align="center" "No links found :("
+	    h3 class="pt-2" align="center" "No links found !"
 	}
 	exit
     }
