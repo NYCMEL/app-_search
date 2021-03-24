@@ -1,1 +1,0 @@
-scp -i /Melify/private/_notes/Melify.pem -r ubuntu@melify.com:/Melify/mtk/dev/app/_search/db/sqlite.db .
